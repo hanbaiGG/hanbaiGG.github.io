@@ -194,7 +194,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-10-31 13:20:30 / 修改时间：13:37:48" itemprop="dateCreated datePublished" datetime="2021-10-31T13:20:30+08:00">2021-10-31</time>
+              <time title="创建时间：2021-10-31 13:20:30 / 修改时间：13:41:13" itemprop="dateCreated datePublished" datetime="2021-10-31T13:20:30+08:00">2021-10-31</time>
             </span>
 
           
@@ -213,13 +213,25 @@
 <h2 id="定义列与完整性约束条件"><a href="#定义列与完整性约束条件" class="headerlink" title="定义列与完整性约束条件"></a>定义列与完整性约束条件</h2><pre><code>COL1 INT PRIMARY KEY
 </code></pre>
 <p>[列名][数据类型][完整性约束条件]</p>
-<h3 id="完整性约束条件的类型"><a href="#完整性约束条件的类型" class="headerlink" title="完整性约束条件的类型"></a>完整性约束条件的类型</h3><h2 id="NOT-NULL：非空约束C"><a href="#NOT-NULL：非空约束C" class="headerlink" title="NOT NULL：非空约束C"></a>NOT NULL：非空约束C</h2><p>指定的列不允许为空值<br>    create table member(<br>        mid number,<br>        name varchar2(200) not null<br>        );<br><em>报错</em><br>    SQL&gt; insert into member(mid,name) values(1,null);<br>    *<br>    第 1 行出现错误:<br>    ORA-01400: 无法将 NULL 插入 (“SCOTT”.”MEMBER”.”NAME”)</p>
-<h2 id="UNIQUE：唯一约束U"><a href="#UNIQUE：唯一约束U" class="headerlink" title="UNIQUE：唯一约束U"></a>UNIQUE：唯一约束U</h2><p>指定的列中没有重复值，或该表中每一个值或者每一组值都将是唯一的<br>    drop table member purge;create table member(<br>        mid number,<br>        name varchar2(200) not null,<br>        email varchar2(50) unique<br>        );</p>
+<h3 id="完整性约束条件的类型"><a href="#完整性约束条件的类型" class="headerlink" title="完整性约束条件的类型"></a>完整性约束条件的类型</h3><h2 id="NOT-NULL：非空约束C"><a href="#NOT-NULL：非空约束C" class="headerlink" title="NOT NULL：非空约束C"></a>NOT NULL：非空约束C</h2><p>指定的列不允许为空值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">create table member(</span><br><span class="line">    mid number,   </span><br><span class="line">    name varchar2(200) not null</span><br><span class="line">    );</span><br></pre></td></tr></table></figure>
+<p><em>报错</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; insert into member(mid,name) values(1,null);</span><br><span class="line">*</span><br><span class="line">第 1 行出现错误:</span><br><span class="line">ORA-01400: 无法将 NULL 插入 (&quot;SCOTT&quot;.&quot;MEMBER&quot;.&quot;NAME&quot;)</span><br></pre></td></tr></table></figure>
+<h2 id="UNIQUE：唯一约束U"><a href="#UNIQUE：唯一约束U" class="headerlink" title="UNIQUE：唯一约束U"></a>UNIQUE：唯一约束U</h2><p>指定的列中没有重复值，或该表中每一个值或者每一组值都将是唯一的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">drop table member purge;create table member(</span><br><span class="line">    mid number,</span><br><span class="line">    name varchar2(200) not null,</span><br><span class="line">    email varchar2(50) unique</span><br><span class="line">    );</span><br></pre></td></tr></table></figure>
+<p><em>报错</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
 <h2 id="PRIMARY-KEY：主键约束P"><a href="#PRIMARY-KEY：主键约束P" class="headerlink" title="PRIMARY KEY：主键约束P"></a>PRIMARY KEY：主键约束P</h2><p>唯一的标识出表的每一行,且不允许空值,一个表只能有一个主键约束</p>
-<h2 id="FOREIGN-KEY：外键约束R"><a href="#FOREIGN-KEY：外键约束R" class="headerlink" title="FOREIGN KEY：外键约束R"></a>FOREIGN KEY：外键约束R</h2><p>一个表中的列引用了其它表中的列，使得存在依赖关系，可以指向引用自身的列</p>
-<h2 id="CHECK：条件约束C"><a href="#CHECK：条件约束C" class="headerlink" title="CHECK：条件约束C"></a>CHECK：条件约束C</h2><p>指定该列是否满足某个条件</p>
-<h1 id="DROP-操作"><a href="#DROP-操作" class="headerlink" title="DROP 操作"></a>DROP 操作</h1><p>1.删除模式<br>DROP SCHEMA&lt;模式名&gt;&lt;CASCADE|RESTRICT&gt;“二选一”<br>    CASCADE完全删除<br>    RESTRICT只删除空模式</p>
-<h1 id="SELECT-操作"><a href="#SELECT-操作" class="headerlink" title="SELECT 操作"></a>SELECT 操作</h1>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">## FOREIGN KEY：外键约束R</span><br><span class="line">一个表中的列引用了其它表中的列，使得存在依赖关系，可以指向引用自身的列</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">## CHECK：条件约束C</span><br><span class="line">指定该列是否满足某个条件</span><br></pre></td></tr></table></figure>
+<pre><code># DROP 操作
+1.删除模式
+DROP SCHEMA&lt;模式名&gt;&lt;CASCADE|RESTRICT&gt;“二选一”
+    CASCADE完全删除
+    RESTRICT只删除空模式
+# SELECT 操作
+</code></pre>
+
       
     </div>
 
