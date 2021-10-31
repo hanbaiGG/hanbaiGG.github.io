@@ -169,6 +169,132 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/31/mysql%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hanbaiGG">
+      <meta itemprop="description" content="为什么不拉弟弟一把呢">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="灵能对抗实验室">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/31/mysql%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">mysql入门学习笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-10-31 13:20:30 / 修改时间：13:37:48" itemprop="dateCreated datePublished" datetime="2021-10-31T13:20:30+08:00">2021-10-31</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="CREATE-操作"><a href="#CREATE-操作" class="headerlink" title="CREATE 操作"></a>CREATE 操作</h1><h2 id="创建模式"><a href="#创建模式" class="headerlink" title="创建模式"></a>创建模式</h2><p>CREATE SCHEMA&lt;模式名&gt;AUTHORIZATION&lt;用户名&gt;</p>
+<h2 id="定义表"><a href="#定义表" class="headerlink" title="定义表"></a>定义表</h2><p>CREATE TABLE TAB1(  COL1 SMALLINT<br>                    COL2 INT<br>                    COL3 CHAR(20)<br>                    COL4 NUMERIC(10,3)<br>                    COL5 DECIMAL(5,2)<br>)</p>
+<h2 id="定义列与完整性约束条件"><a href="#定义列与完整性约束条件" class="headerlink" title="定义列与完整性约束条件"></a>定义列与完整性约束条件</h2><pre><code>COL1 INT PRIMARY KEY
+</code></pre>
+<p>[列名][数据类型][完整性约束条件]</p>
+<h3 id="完整性约束条件的类型"><a href="#完整性约束条件的类型" class="headerlink" title="完整性约束条件的类型"></a>完整性约束条件的类型</h3><h2 id="NOT-NULL：非空约束C"><a href="#NOT-NULL：非空约束C" class="headerlink" title="NOT NULL：非空约束C"></a>NOT NULL：非空约束C</h2><p>指定的列不允许为空值<br>    create table member(<br>        mid number,<br>        name varchar2(200) not null<br>        );<br><em>报错</em><br>    SQL&gt; insert into member(mid,name) values(1,null);<br>    *<br>    第 1 行出现错误:<br>    ORA-01400: 无法将 NULL 插入 (“SCOTT”.”MEMBER”.”NAME”)</p>
+<h2 id="UNIQUE：唯一约束U"><a href="#UNIQUE：唯一约束U" class="headerlink" title="UNIQUE：唯一约束U"></a>UNIQUE：唯一约束U</h2><p>指定的列中没有重复值，或该表中每一个值或者每一组值都将是唯一的<br>    drop table member purge;create table member(<br>        mid number,<br>        name varchar2(200) not null,<br>        email varchar2(50) unique<br>        );</p>
+<h2 id="PRIMARY-KEY：主键约束P"><a href="#PRIMARY-KEY：主键约束P" class="headerlink" title="PRIMARY KEY：主键约束P"></a>PRIMARY KEY：主键约束P</h2><p>唯一的标识出表的每一行,且不允许空值,一个表只能有一个主键约束</p>
+<h2 id="FOREIGN-KEY：外键约束R"><a href="#FOREIGN-KEY：外键约束R" class="headerlink" title="FOREIGN KEY：外键约束R"></a>FOREIGN KEY：外键约束R</h2><p>一个表中的列引用了其它表中的列，使得存在依赖关系，可以指向引用自身的列</p>
+<h2 id="CHECK：条件约束C"><a href="#CHECK：条件约束C" class="headerlink" title="CHECK：条件约束C"></a>CHECK：条件约束C</h2><p>指定该列是否满足某个条件</p>
+<h1 id="DROP-操作"><a href="#DROP-操作" class="headerlink" title="DROP 操作"></a>DROP 操作</h1><p>1.删除模式<br>DROP SCHEMA&lt;模式名&gt;&lt;CASCADE|RESTRICT&gt;“二选一”<br>    CASCADE完全删除<br>    RESTRICT只删除空模式</p>
+<h1 id="SELECT-操作"><a href="#SELECT-操作" class="headerlink" title="SELECT 操作"></a>SELECT 操作</h1>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/31/mysql%E8%B8%A9%E5%9D%91%E9%81%BF%E9%9B%B7-%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hanbaiGG">
+      <meta itemprop="description" content="为什么不拉弟弟一把呢">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="灵能对抗实验室">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/31/mysql%E8%B8%A9%E5%9D%91%E9%81%BF%E9%9B%B7-%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">mysql踩坑避雷_个人总结</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-10-31 12:57:59" itemprop="dateCreated datePublished" datetime="2021-10-31T12:57:59+08:00">2021-10-31</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/31/%E4%B8%AD%E7%A7%91%E5%A4%A7web-general-wp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -678,7 +804,7 @@ py脚本
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
