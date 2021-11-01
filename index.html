@@ -169,6 +169,77 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/01/secretfile/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hanbaiGG">
+      <meta itemprop="description" content="为什么不拉弟弟一把呢">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="灵能对抗实验室">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/01/secretfile/" class="post-title-link" itemprop="url">secretfile</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-11-01 10:55:23 / 修改时间：10:55:56" itemprop="dateCreated datePublished" datetime="2021-11-01T10:55:23+08:00">2021-11-01</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1-f12查看页面代码"><a href="#1-f12查看页面代码" class="headerlink" title="1.f12查看页面代码"></a>1.f12查看页面代码</h1><pre><code>发现
+```href=&quot;./Archive_room.php&quot;```
+点击前往
+</code></pre>
+<h1 id="2-burpsuit截获中间页面"><a href="#2-burpsuit截获中间页面" class="headerlink" title="2.burpsuit截获中间页面"></a>2.burpsuit截获中间页面</h1><pre><code>提示没看清中间页面
+通过burp截取获得
+</code></pre>
+<h1 id="3-include文件包含"><a href="#3-include文件包含" class="headerlink" title="3.include文件包含"></a>3.include文件包含</h1><pre><code>flag.php没有反应
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$file</span>=<span class="variable">$_GET</span>[<span class="string">&#x27;file&#x27;</span>]</span><br><span class="line"><span class="keyword">include</span>(<span class="variable">$file</span>)</span><br></pre></td></tr></table></figure>
+首先尝试php伪协议
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url ?file=php://filter/convert.base64-encode/resource=flag.php</span><br></pre></td></tr></table></figure>
+</code></pre>
+<h1 id="4-base解密获取flag。"><a href="#4-base解密获取flag。" class="headerlink" title="4.base解密获取flag。"></a>4.base解密获取flag。</h1>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/31/mysql%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -348,10 +419,16 @@ phpstudy是一款免费的集成mysql和apeach的网站开发工具，比较适�
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-10-31 12:47:26 / 修改时间：12:55:21" itemprop="dateCreated datePublished" datetime="2021-10-31T12:47:26+08:00">2021-10-31</time>
+              <time title="创建时间：2021-10-31 12:47:26" itemprop="dateCreated datePublished" datetime="2021-10-31T12:47:26+08:00">2021-10-31</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-01 10:19:14" itemprop="dateModified" datetime="2021-11-01T10:19:14+08:00">2021-11-01</time>
+              </span>
 
           
 
@@ -396,7 +473,7 @@ phpstudy是一款免费的集成mysql和apeach的网站开发工具，比较适�
 <p>sed 可依照脚本的指令来处理、编辑文本文件。</p>
 <p>Sed 主要用来自动编辑一个或多个文件、简化对文件的反复操作、编写转换程序等。</p>
 <p>语法<br><code>sed [-hnV][-e&lt;script&gt;][-f&lt;script文件&gt;][文本文件]</code><br>参数说明：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">```-f&lt;script文件&gt;或--file=&lt;script文件&gt;``` 以选项中指定的script文件来处理输入的文本文件。</span><br><span class="line">-h或--help 显示帮助。</span><br><span class="line">-n或--quiet或--silent 仅显示script处理后的结果。</span><br><span class="line">-V或--version 显示版本信息。</span><br><span class="line">动作说明：</span><br><span class="line"></span><br><span class="line">a ：新增， a 的后面可以接字串，而这些字串会在新的一行出现(目前的下一行)～</span><br><span class="line">c ：取代， c 的后面可以接字串，这些字串可以取代 n1,n2 之间的行！</span><br><span class="line">d ：删除，因为是删除啊，所以 d 后面通常不接任何咚咚；</span><br><span class="line">i ：插入， i 的后面可以接字串，而这些字串会在新的一行出现(目前的上一行)；</span><br><span class="line">p ：打印，亦即将某个选择的数据印出。通常 p 会与参数 sed -n 一起运行～</span><br><span class="line">s ：取代，可以直接进行取代的工作哩！通常这个 s 的动作可以搭配正规表示法！例如 1,20s/old/new/</span><br><span class="line">参考链接：https://www.runoob.com/linux/linux-comm-sed.html</span><br><span class="line">## 旅行照片</span><br><span class="line">社工知识点：</span><br><span class="line">1.太阳能朝向为正南</span><br><span class="line">2.地平线与任何物体的交点都和观测者处于同一水平线</span><br><span class="line">3.使用百度街景灵活观测地标建筑</span><br><span class="line">## 加密的u盘</span><br><span class="line">官方wp学习</span><br><span class="line">知识点：</span><br><span class="line">0. LUKS使用cryptsetup执行磁盘加密操作</span><br><span class="line">1. 回环设备：即将iso等镜像文件看作光盘或硬盘来读取</span><br><span class="line">2. tldr——too long,dont read</span><br><span class="line">转载自https://www.jianshu.com/p/dede28439a26</span><br><span class="line">    2_1. 安装</span><br><span class="line">    喜欢node可以用：sudo npm install -g tldr</span><br><span class="line">    习惯Python的：pip install tldr.py</span><br><span class="line">    偏爱Go的：go get github.com/pranavraja/tldr</span><br><span class="line">    热爱Ruby的：gem install told</span><br><span class="line">    2_2. 使用</span><br><span class="line">    tldr &lt;你忘记的命令&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">```-f&lt;script文件&gt;或--file=&lt;script文件&gt;``` 以选项中指定的script文件来处理输入的文本文件。</span><br><span class="line">-h或--help 显示帮助。</span><br><span class="line">-n或--quiet或--silent 仅显示script处理后的结果。</span><br><span class="line">-V或--version 显示版本信息。</span><br><span class="line">动作说明：</span><br><span class="line"></span><br><span class="line">a ：新增， a 的后面可以接字串，而这些字串会在新的一行出现(目前的下一行)～</span><br><span class="line">c ：取代， c 的后面可以接字串，这些字串可以取代 n1,n2 之间的行！</span><br><span class="line">d ：删除，因为是删除啊，所以 d 后面通常不接任何咚咚；</span><br><span class="line">i ：插入， i 的后面可以接字串，而这些字串会在新的一行出现(目前的上一行)；</span><br><span class="line">p ：打印，亦即将某个选择的数据印出。通常 p 会与参数 sed -n 一起运行～</span><br><span class="line">s ：取代，可以直接进行取代的工作哩！通常这个 s 的动作可以搭配正规表示法！例如 1,20s/old/new/</span><br><span class="line">参考链接：https://www.runoob.com/linux/linux-comm-sed.html</span><br><span class="line">## 旅行照片</span><br><span class="line">社工知识点：</span><br><span class="line">1.太阳能朝向为正南</span><br><span class="line">2.地平线与任何物体的交点都和观测者处于同一水平线</span><br><span class="line">3.使用百度街景灵活观测地标建筑</span><br><span class="line">## 加密的u盘</span><br><span class="line">官方wp学习</span><br><span class="line">知识点：</span><br><span class="line">0. LUKS使用cryptsetup执行磁盘加密操作</span><br><span class="line">1. 回环设备：即将iso等镜像文件看作光盘或硬盘来读取</span><br><span class="line">2. tldr——too long,dont read</span><br><span class="line">转载自https://www.jianshu.com/p/dede28439a26</span><br><span class="line">    2_1. 安装</span><br><span class="line">    喜欢node可以用：sudo npm install -g tldr</span><br><span class="line">    习惯Python的：pip install tldr.py</span><br><span class="line">    偏爱Go的：go get github.com/pranavraja/tldr</span><br><span class="line">    热爱Ruby的：gem install told</span><br><span class="line">    2_2. 使用</span><br><span class="line">    tldr &lt;你忘记的命令&gt;</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
 <p>$ tldr -p linux cryptsetup</p>
 <p>cryptsetup</p>
 <p>Manage plain dm-crypt and LUKS (Linux Unified Key Setup) encrypted volumes.<br>More information: <a target="_blank" rel="noopener" href="https://gitlab.com/cryptsetup/cryptsetup/">https://gitlab.com/cryptsetup/cryptsetup/</a>.</p>
@@ -407,15 +484,14 @@ phpstudy是一款免费的集成mysql和apeach的网站开发工具，比较适�
 <li><p>Remove an existing mapping:<br>  cryptsetup luksClose target</p>
 </li>
 <li><p>Change the LUKS volume’s passphrase:<br>  cryptsetup luksChangeKey /dev/sda1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">3. fdisk linux硬盘分区命令</span><br><span class="line">[root@localhost ~]# fdisk ~l</span><br><span class="line">#列出系统分区</span><br><span class="line">[root@localhost ~]# fdisk 设备文件名</span><br><span class="line">#给硬盘分区</span><br></pre></td></tr></table></figure>
-<p>$ fdisk -l ./day1.img<br>Disk ./day1.img: 20 MiB, 20971520 bytes, 40960 sectors<br>Units: sectors of 1 * 512 = 512 bytes<br>Sector size (logical/physical): 512 bytes / 512 bytes<br>I/O size (minimum/optimal): 512 bytes / 512 bytes<br>Disklabel type: gpt<br>Disk identifier: E1D1730D-1029-44A4-898B-FEBC77E7884F</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3. fdisk linux硬盘分区命令</span><br></pre></td></tr></table></figure>
+<p>[root@localhost ~]# fdisk ~l<br>列出系统分区<br>[root@localhost ~]# fdisk 设备文件名<br>给硬盘分区<br>$ fdisk -l ./day1.img<br>Disk ./day1.img: 20 MiB, 20971520 bytes, 40960 sectors<br>Units: sectors of 1 * 512 = 512 bytes<br>Sector size (logical/physical): 512 bytes / 512 bytes<br>I/O size (minimum/optimal): 512 bytes / 512 bytes<br>Disklabel type: gpt<br>Disk identifier: E1D1730D-1029-44A4-898B-FEBC77E7884F<br>Device      Start   End Sectors Size Type<br>./day1.img1  2048 40926   38879  19M Linux filesystem</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">4. 将文件设定为回环设备</span><br><span class="line">```$ sudo losetup -P /dev/loop0 ./day1.img```</span><br><span class="line">-P 参数会要求内核扫描新回环设备的分区表。没加也没事，sudo partprobe /dev/loop0 就行。然后就可以用 cryptsetup 打开 LUKS 分区了（起名 day1)</span><br></pre></td></tr></table></figure>
+<p>$ sudo cryptsetup luksOpen /dev/loop0p1 day1<br>Enter passphrase for /dev/loop0p1:<br>$<br>```<br>输入密码可获取明文</p>
 </li>
 </ul>
-<p>Device      Start   End Sectors Size Type<br>./day1.img1  2048 40926   38879  19M Linux filesystem</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">4. 将文件设定为回环设备</span><br><span class="line">```$ sudo losetup -P /dev/loop0 ./day1.img```</span><br><span class="line">-P 参数会要求内核扫描新回环设备的分区表。没加也没事，sudo partprobe /dev/loop0 就行。然后就可以用 cryptsetup 打开 LUKS 分区了（起名 day1)</span><br></pre></td></tr></table></figure>
-<p>$ sudo cryptsetup luksOpen /dev/loop0p1 day1<br>Enter passphrase for /dev/loop0p1:<br>$</p>
-<p>```<br>输入密码可获取明文<br>5. 解题关键点：Master key 与 passphrase<br>为了减少每次更改密码时对全部磁盘进行加密的巨额操作量，LUKS设定了一个master key，用户的passphrase只会加密masterkey，而对全部磁盘的加密则通过固定的masterkey来进行，因此我们得到了一个明文一个密文，并通过此解出密钥<br>题解：</p>
-<ol>
+<ol start="5">
+<li>解题关键点：Master key 与 passphrase<br>为了减少每次更改密码时对全部磁盘进行加密的巨额操作量，LUKS设定了一个master key，用户的passphrase只会加密masterkey，而对全部磁盘的加密则通过固定的masterkey来进行，因此我们得到了一个明文一个密文，并通过此解出密钥<br>题解：</li>
 <li>man cryptsetup<br>发现存在dump master key操作<br>通过 master key file操作可以使用外部的masterkey直接解密文件<h2 id="赛博厨房"><a href="#赛博厨房" class="headerlink" title="赛博厨房"></a>赛博厨房</h2>剩下的还在研究中·····</li>
 </ol>
 
@@ -834,7 +910,7 @@ py脚本
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
