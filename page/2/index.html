@@ -169,6 +169,123 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/31/%E4%B8%AD%E7%A7%91%E5%A4%A7web-general-wp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hanbaiGG">
+      <meta itemprop="description" content="为什么不拉弟弟一把呢">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="灵能对抗实验室">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/31/%E4%B8%AD%E7%A7%91%E5%A4%A7web-general-wp/" class="post-title-link" itemprop="url">中科大web-general_wp</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-10-31 12:47:26" itemprop="dateCreated datePublished" datetime="2021-10-31T12:47:26+08:00">2021-10-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-01 10:19:14" itemprop="dateModified" datetime="2021-11-01T10:19:14+08:00">2021-11-01</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="web部分"><a href="#web部分" class="headerlink" title="web部分"></a>web部分</h1><h2 id="签到"><a href="#签到" class="headerlink" title="签到"></a>签到</h2><p>通过在线工具计算1970.1.1到2021.10.25的时间差</p>
+<h2 id="卖瓜"><a href="#卖瓜" class="headerlink" title="卖瓜"></a>卖瓜</h2><p>php特性：当php运算结果超过int型范围时，将会返回float类型<br>php中int型上线为：9223372036854775807<br>超过此数的float型在转换成int型时会溢出至负数，通过这一方法寻找一个n mod 3=2的数</p>
+<h2 id="flag助力大红包"><a href="#flag助力大红包" class="headerlink" title="flag助力大红包"></a>flag助力大红包</h2><p>很显然这是一个跑requests代码的题<br>但需要注意的时题目中所说的使用前后端方法检测ip地址<br>知识点：<br>1.ipv4中有256个网段，理论上可以用代理完成。但其中有十几个/8网段被预先占用：<br>    RFC1700 定义的 0.0.0.0/8 和回环地址 127.0.0.0/8。<br>    RFC1918 定义的私有地址 10.0.0.0/8、192.168.0.0/16 ，172.16.0.0/12<br>    RFC3171 定义的组播地址 224.0.0.0/4<br>    RFC1700 定义的保留地址 240.0.0.0/4<br>    用于特殊网络的 14.0.0.0/8 , 24.0.0.0/8 以及 39.0.0.0/8<br>    美国国防部宣告的大量 IPv4 /8 网段，例如 6.0.0.0/8 ， 7.0.0.0/8 等等 十几个 /8 网段<br>2.服务器通过搜狐接口调用实现远程ip地址识别<br>    //网页端引入脚本<br>    <script type="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8"></script><br>    //这是通过读取表单中的ip来获取数据，可以直接post一个伪造ip（原理不清）<br>3.服务器header存在的X-Forwarded-For漏洞//等同于X-Remote-IP<br>4.服务器存在流量控制，需要控制发送频率<br>题解：<br>攻击脚本//官方wp</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> requests.api <span class="keyword">import</span> head</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;&lt;助力连接的地址&gt;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="number">256</span>):</span><br><span class="line">    ip = <span class="string">f&quot;<span class="subst">&#123;i&#125;</span>.1.1.1&quot;</span></span><br><span class="line">    ret = requests.post(url, data=&#123;<span class="string">&quot;ip&quot;</span>: ip&#125;, headers=&#123;<span class="string">&quot;X-Forwarded-For&quot;</span>: ip&#125;)</span><br><span class="line">    time.sleep(<span class="number">1.2</span>)</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure>
+<h2 id="图之上的信息（GraphQL）"><a href="#图之上的信息（GraphQL）" class="headerlink" title="图之上的信息（GraphQL）"></a>图之上的信息（GraphQL）</h2><p>学习中<br><a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/graphql-introspection-queries">https://www.digitalocean.com/community/tutorials/graphql-introspection-queries</a><br><a target="_blank" rel="noopener" href="https://github.com/graphql/graphql-js/blob/main/src/type/introspection.ts">https://github.com/graphql/graphql-js/blob/main/src/type/introspection.ts</a><br><a target="_blank" rel="noopener" href="https://graphql.org/learn/">https://graphql.org/learn/</a><br><a target="_blank" rel="noopener" href="https://github.com/USTC-Hackergame/hackergame2021-writeups/blob/master/official/%E5%9B%BE%E4%B9%8B%E4%B8%8A%E7%9A%84%E4%BF%A1%E6%81%AF/README.md">https://github.com/USTC-Hackergame/hackergame2021-writeups/blob/master/official/%E5%9B%BE%E4%B9%8B%E4%B8%8A%E7%9A%84%E4%BF%A1%E6%81%AF/README.md</a></p>
+<h1 id="general部分"><a href="#general部分" class="headerlink" title="general部分"></a>general部分</h1><h2 id="进制十六——参上"><a href="#进制十六——参上" class="headerlink" title="进制十六——参上"></a>进制十六——参上</h2><p>1.使用16进制编辑器输入<br>2.命令行解法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &#x27;20666C61 677B5930 555F5348 30553144 5F6B6E30 775F4830 575F7430 5F43306E 76337274 5F484558 5F746F5F 54657854 7D20466F 72206578&#x27; | xxd -r -p</span><br><span class="line">flag&#123;Y0U_SH0U1D_kn0w_H0W_t0_C0nv3rt_HEX_to_TexT&#125; For ex</span><br></pre></td></tr></table></figure>
+<p>3.python</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">bytes</span>.fromhex(<span class="string">&quot;20666C61 677B5930 555F5348 30553144 5F6B6E30 775F4830 575F7430 5F43306E 76337274 5F484558 5F746F5F 54657854 7D20466F 72206578&quot;</span>)</span><br><span class="line"><span class="string">b&#x27; flag&#123;Y0U_SH0U1D_kn0w_H0W_t0_C0nv3rt_HEX_to_TexT&#125; For ex&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>4.cyberchef或在线转换工具</p>
+<h2 id="追寻自由的电波"><a href="#追寻自由的电波" class="headerlink" title="追寻自由的电波"></a>追寻自由的电波</h2><p>1.官方wp<br>使用ffmoeg工具进行对采样频率的改变<br>    ffmpeg -i radio.mp3 -af ‘asetrate=24000’ radio2.mp3<br>2.使用Au改变音速和音调（尝试中）</p>
+<h2 id="透明的图片"><a href="#透明的图片" class="headerlink" title="透明的图片"></a>透明的图片</h2><h3 id="1-VT100-escape-codes知识点"><a href="#1-VT100-escape-codes知识点" class="headerlink" title="1.VT100 escape codes知识点"></a>1.VT100 escape codes知识点</h3><p>VT100是一个古老的终端定义,后面出现的终端几乎都兼容这种终端。VT100控制码是用来在终端扩展显示的代码。比如果终端上任意坐标用不同的颜色显示字符。有时又称为ANSI Escape Sequence.</p>
+<p>  所有的VT100控制符是 \033打头（即ESC的ASCII码）用输出字符语句来输出。可以在命令行用echo -ne 命令，或者在C程序中用printf来输出VT100的控制字符。</p>
+<p>具体格式有两种，<br>  一种数字形式， \033[&lt;数字&gt;m .<br>   如 \33[40m ，表示让后面字符输出用背景黑色输出 \33[0m表示取消前面的设置。<br>其中前景（字符颜色）/背景颜色需要同时输出。<br> 另一种是控制字符形式。即最后一个字符不是m，而是控制字符。<br>　\033[K 清除从光标到行尾的内容<br>  \033[nC 光标右移n行</p>
+<p>VT100控制码<br>VT100控制码归类如下。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">　　\33[nA 光标上移n行 </span><br><span class="line">　　\33[nB 光标下移n行 </span><br><span class="line">　　\33[nC 光标右移n行 </span><br><span class="line">　　\33[nD 光标左移n行 </span><br><span class="line">　　\33[y;xH设置光标位置 </span><br><span class="line">　　\33[2J 清屏 </span><br><span class="line">　　\33[K 清除从光标到行尾的内容 </span><br><span class="line">　　\33[s 保存光标位置 </span><br><span class="line">　　\33[u 恢复光标位置 </span><br><span class="line">　　\33[?25l 隐藏光标 </span><br><span class="line">　　\33[?25h 显示光标</span><br></pre></td></tr></table></figure>
+<p>VT100数字型控制码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">\33[0m 关闭所有属性 </span><br><span class="line">　　\33[1m 设置高亮度 </span><br><span class="line">　　\33[4m 下划线 </span><br><span class="line">　　\33[5m 闪烁 </span><br><span class="line">　　\33[7m 反显 </span><br><span class="line">　　\33[8m 消隐 </span><br><span class="line">　　\33[30m -- \33[37m 设置前景色 </span><br><span class="line">　　\33[40m -- \33[47m 设置背景色 </span><br></pre></td></tr></table></figure>
+<p>VT100关于颜色的说明.</p>
+<p>  VT100的颜色输出分为，注意要同时输出前景的字符颜色和背景颜色。</p>
+<p>  背景颜色范围:40—-49<br>　　40:黑<br>　　41:深红<br>　　42:绿<br>　　43:黄色<br>　　44:蓝色<br>　　45:紫色<br>　　46:深绿<br>　　47:白色<br>　　前景字符颜色:30———–39<br>　　30:黑<br>　　31:红<br>　　32:绿<br>　　33:黄<br>　　34:蓝色<br>　　35:紫色<br>　　36:深绿<br>　　37:白色<br>这样输出一个字符串比较完整如下<br>   echo -ne “\033[字背景颜色;字体颜色m字符串\033[0m”<br>例：<br>   echo -ne “\033[41;36m something here \033[0m”</p>
+<p>常见样例</p>
+<p>echo -ne “\033[2J” #清屏<br>echo -ne “\033[47;30m Andrew Huang \033[0m” #黑底白字输出Andrew Huang<br>echo -ne “033[5;10H \033[42;33m abc \033[0m” #(10,5)输出绿底黄字。</p>
+<p>关于VT100控制码编码</p>
+<p>VT100只要printf打印相应的字符串即可支持相应功能，但是因为输出控制符虚列太多于难记，因此可通用一些宏来简化其操作。</p>
+<p> 参考资料:<br>    <a target="_blank" rel="noopener" href="http://people.ofset.org/~ckhung/b/mi/textmode.php">http://people.ofset.org/~ckhung/b/mi/textmode.php</a><br>  文本游戏网站<br>     <a target="_blank" rel="noopener" href="http://www.textmodegames.com/">http://www.textmodegames.com/</a><br>VT100编码<br><a target="_blank" rel="noopener" href="http://www.termsys.demon.co.uk/vtansi.htm">http://www.termsys.demon.co.uk/vtansi.htm</a></p>
+<h3 id="2-linux终端复原"><a href="#2-linux终端复原" class="headerlink" title="2.linux终端复原"></a>2.linux终端复原</h3><pre><code>```cat transparent.txt | sed &#39;s/\[/\x1b[/g&#39; | sed &#39;s/ /#/g&#39;```
+</code></pre>
+<p>//转自runoob<br>Linux sed 命令是利用脚本来处理文本文件。</p>
+<p>sed 可依照脚本的指令来处理、编辑文本文件。</p>
+<p>Sed 主要用来自动编辑一个或多个文件、简化对文件的反复操作、编写转换程序等。</p>
+<p>语法<br><code>sed [-hnV][-e&lt;script&gt;][-f&lt;script文件&gt;][文本文件]</code><br>参数说明：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">```-f&lt;script文件&gt;或--file=&lt;script文件&gt;``` 以选项中指定的script文件来处理输入的文本文件。</span><br><span class="line">-h或--help 显示帮助。</span><br><span class="line">-n或--quiet或--silent 仅显示script处理后的结果。</span><br><span class="line">-V或--version 显示版本信息。</span><br><span class="line">动作说明：</span><br><span class="line"></span><br><span class="line">a ：新增， a 的后面可以接字串，而这些字串会在新的一行出现(目前的下一行)～</span><br><span class="line">c ：取代， c 的后面可以接字串，这些字串可以取代 n1,n2 之间的行！</span><br><span class="line">d ：删除，因为是删除啊，所以 d 后面通常不接任何咚咚；</span><br><span class="line">i ：插入， i 的后面可以接字串，而这些字串会在新的一行出现(目前的上一行)；</span><br><span class="line">p ：打印，亦即将某个选择的数据印出。通常 p 会与参数 sed -n 一起运行～</span><br><span class="line">s ：取代，可以直接进行取代的工作哩！通常这个 s 的动作可以搭配正规表示法！例如 1,20s/old/new/</span><br><span class="line">参考链接：https://www.runoob.com/linux/linux-comm-sed.html</span><br><span class="line">## 旅行照片</span><br><span class="line">社工知识点：</span><br><span class="line">1.太阳能朝向为正南</span><br><span class="line">2.地平线与任何物体的交点都和观测者处于同一水平线</span><br><span class="line">3.使用百度街景灵活观测地标建筑</span><br><span class="line">## 加密的u盘</span><br><span class="line">官方wp学习</span><br><span class="line">知识点：</span><br><span class="line">0. LUKS使用cryptsetup执行磁盘加密操作</span><br><span class="line">1. 回环设备：即将iso等镜像文件看作光盘或硬盘来读取</span><br><span class="line">2. tldr——too long,dont read</span><br><span class="line">转载自https://www.jianshu.com/p/dede28439a26</span><br><span class="line">    2_1. 安装</span><br><span class="line">    喜欢node可以用：sudo npm install -g tldr</span><br><span class="line">    习惯Python的：pip install tldr.py</span><br><span class="line">    偏爱Go的：go get github.com/pranavraja/tldr</span><br><span class="line">    热爱Ruby的：gem install told</span><br><span class="line">    2_2. 使用</span><br><span class="line">    tldr &lt;你忘记的命令&gt;</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+<p>$ tldr -p linux cryptsetup</p>
+<p>cryptsetup</p>
+<p>Manage plain dm-crypt and LUKS (Linux Unified Key Setup) encrypted volumes.<br>More information: <a target="_blank" rel="noopener" href="https://gitlab.com/cryptsetup/cryptsetup/">https://gitlab.com/cryptsetup/cryptsetup/</a>.</p>
+<ul>
+<li><p>Initialize a LUKS volume (overwrites all data on the partition):<br>  cryptsetup luksFormat /dev/sda1<br>Open a LUKS volume and create a decrypted mapping at `/dev/mapper/target:</p>
+<p>  cryptsetup luksOpen /dev/sda1 target</p>
+</li>
+<li><p>Remove an existing mapping:<br>  cryptsetup luksClose target</p>
+</li>
+<li><p>Change the LUKS volume’s passphrase:<br>  cryptsetup luksChangeKey /dev/sda1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3. fdisk linux硬盘分区命令</span><br></pre></td></tr></table></figure>
+<p>[root@localhost ~]# fdisk ~l<br>列出系统分区<br>[root@localhost ~]# fdisk 设备文件名<br>给硬盘分区<br>$ fdisk -l ./day1.img<br>Disk ./day1.img: 20 MiB, 20971520 bytes, 40960 sectors<br>Units: sectors of 1 * 512 = 512 bytes<br>Sector size (logical/physical): 512 bytes / 512 bytes<br>I/O size (minimum/optimal): 512 bytes / 512 bytes<br>Disklabel type: gpt<br>Disk identifier: E1D1730D-1029-44A4-898B-FEBC77E7884F<br>Device      Start   End Sectors Size Type<br>./day1.img1  2048 40926   38879  19M Linux filesystem</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">4. 将文件设定为回环设备</span><br><span class="line">```$ sudo losetup -P /dev/loop0 ./day1.img```</span><br><span class="line">-P 参数会要求内核扫描新回环设备的分区表。没加也没事，sudo partprobe /dev/loop0 就行。然后就可以用 cryptsetup 打开 LUKS 分区了（起名 day1)</span><br></pre></td></tr></table></figure>
+<p>$ sudo cryptsetup luksOpen /dev/loop0p1 day1<br>Enter passphrase for /dev/loop0p1:<br>$<br>```<br>输入密码可获取明文</p>
+</li>
+</ul>
+<ol start="5">
+<li>解题关键点：Master key 与 passphrase<br>为了减少每次更改密码时对全部磁盘进行加密的巨额操作量，LUKS设定了一个master key，用户的passphrase只会加密masterkey，而对全部磁盘的加密则通过固定的masterkey来进行，因此我们得到了一个明文一个密文，并通过此解出密钥<br>题解：</li>
+<li>man cryptsetup<br>发现存在dump master key操作<br>通过 master key file操作可以使用外部的masterkey直接解密文件<h2 id="赛博厨房"><a href="#赛博厨房" class="headerlink" title="赛博厨房"></a>赛博厨房</h2>剩下的还在研究中·····</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/19/misc-basic-images/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -569,7 +686,7 @@ py脚本
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
