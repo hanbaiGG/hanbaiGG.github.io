@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="pico宝宝巴士Beginner 2022mini大量的萌新题，由于刚开始没找到入口抽空做了下，把一些有代表性的放在一起了。 codebook12345678910111213141516171819202122232425262728293031import randomimport sysdef str_xor(secret, key):    #extend key to secret le">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3m23">
+<meta property="og:url" content="http://example.com/2022/03/23/3m23/index.html">
+<meta property="og:site_name" content="灵能对抗实验室">
+<meta property="og:description" content="pico宝宝巴士Beginner 2022mini大量的萌新题，由于刚开始没找到入口抽空做了下，把一些有代表性的放在一起了。 codebook12345678910111213141516171819202122232425262728293031import randomimport sysdef str_xor(secret, key):    #extend key to secret le">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-23T06:02:31.000Z">
+<meta property="article:modified_time" content="2022-03-23T10:30:36.866Z">
+<meta property="article:author" content="hanbaiGG">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2022/03/23/3m23/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>3m23 | 灵能对抗实验室</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">灵能对抗实验室</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/23/3m23/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hanbaiGG">
+      <meta itemprop="description" content="为什么不拉弟弟一把呢">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="灵能对抗实验室">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          3m23
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-03-23 14:02:31 / 修改时间：18:30:36" itemprop="dateCreated datePublished" datetime="2022-03-23T14:02:31+08:00">2022-03-23</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="pico宝宝巴士"><a href="#pico宝宝巴士" class="headerlink" title="pico宝宝巴士"></a><strong>pico</strong>宝宝巴士</h1><h2 id="Beginner-2022mini"><a href="#Beginner-2022mini" class="headerlink" title="Beginner 2022mini"></a>Beginner 2022mini</h2><p>大量的萌新题，由于刚开始没找到入口抽空做了下，把一些有代表性的放在一起了。</p>
+<h5 id="codebook"><a href="#codebook" class="headerlink" title="codebook"></a>codebook</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">str_xor</span>(<span class="params">secret, key</span>):</span></span><br><span class="line">    <span class="comment">#extend key to secret length</span></span><br><span class="line">    new_key = key</span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(new_key) &lt; <span class="built_in">len</span>(secret):</span><br><span class="line">        new_key = new_key + key[i]</span><br><span class="line">        i = (i + <span class="number">1</span>) % <span class="built_in">len</span>(key)        </span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;&quot;</span>.join([<span class="built_in">chr</span>(<span class="built_in">ord</span>(secret_c) ^ <span class="built_in">ord</span>(new_key_c)) <span class="keyword">for</span> (secret_c,new_key_c) <span class="keyword">in</span> <span class="built_in">zip</span>(secret,new_key)])</span><br><span class="line"></span><br><span class="line">flag_enc = <span class="built_in">chr</span>(<span class="number">0x13</span>) + <span class="built_in">chr</span>(<span class="number">0x01</span>) + <span class="built_in">chr</span>(<span class="number">0x17</span>) + <span class="built_in">chr</span>(<span class="number">0x07</span>) + <span class="built_in">chr</span>(<span class="number">0x2c</span>) + <span class="built_in">chr</span>(<span class="number">0x3a</span>) + <span class="built_in">chr</span>(<span class="number">0x2f</span>) + <span class="built_in">chr</span>(<span class="number">0x1a</span>) + <span class="built_in">chr</span>(<span class="number">0x0d</span>) + <span class="built_in">chr</span>(<span class="number">0x53</span>) + <span class="built_in">chr</span>(<span class="number">0x0c</span>) + <span class="built_in">chr</span>(<span class="number">0x47</span>) + <span class="built_in">chr</span>(<span class="number">0x0a</span>) + <span class="built_in">chr</span>(<span class="number">0x5f</span>) + <span class="built_in">chr</span>(<span class="number">0x5e</span>) + <span class="built_in">chr</span>(<span class="number">0x02</span>) + <span class="built_in">chr</span>(<span class="number">0x3e</span>) + <span class="built_in">chr</span>(<span class="number">0x5a</span>) + <span class="built_in">chr</span>(<span class="number">0x56</span>) + <span class="built_in">chr</span>(<span class="number">0x5d</span>) + <span class="built_in">chr</span>(<span class="number">0x45</span>) + <span class="built_in">chr</span>(<span class="number">0x5d</span>) + <span class="built_in">chr</span>(<span class="number">0x58</span>) + <span class="built_in">chr</span>(<span class="number">0x31</span>) + <span class="built_in">chr</span>(<span class="number">0x51</span>) + <span class="built_in">chr</span>(<span class="number">0x50</span>) + <span class="built_in">chr</span>(<span class="number">0x5e</span>) + <span class="built_in">chr</span>(<span class="number">0x53</span>) + <span class="built_in">chr</span>(<span class="number">0x0b</span>) + <span class="built_in">chr</span>(<span class="number">0x43</span>) + <span class="built_in">chr</span>(<span class="number">0x0b</span>) + <span class="built_in">chr</span>(<span class="number">0x5e</span>) + <span class="built_in">chr</span>(<span class="number">0x13</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_flag</span>():</span></span><br><span class="line">  <span class="keyword">try</span>:</span><br><span class="line">    codebook = <span class="built_in">open</span>(<span class="string">&#x27;codebook.txt&#x27;</span>, <span class="string">&#x27;r+&#x27;</span>).read() </span><br><span class="line">    password = codebook[<span class="number">4</span>] + codebook[<span class="number">14</span>] + codebook[<span class="number">13</span>] + codebook[<span class="number">14</span>] +\</span><br><span class="line">               codebook[<span class="number">23</span>]+ codebook[<span class="number">25</span>] + codebook[<span class="number">16</span>] + codebook[<span class="number">0</span>]  +\</span><br><span class="line">               codebook[<span class="number">25</span>]</span><br><span class="line">               </span><br><span class="line">    flag = str_xor(flag_enc, password)</span><br><span class="line">    <span class="built_in">print</span>(flag)</span><br><span class="line">  <span class="keyword">except</span> FileNotFoundError:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Couldn\&#x27;t find codebook.txt. Did you download that file into the same directory as this script?&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">  print_flag()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">  main()</span><br></pre></td></tr></table></figure>
+<p>将code.py内的字符串和codebook中的字符串异或后得出flag</p>
+<h5 id="hashjobapp"><a href="#hashjobapp" class="headerlink" title="hashjobapp"></a>hashjobapp</h5><p>对使用<code>nc</code>有了初步理解</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc saturn.picoctf.net 54555</span><br></pre></td></tr></table></figure>
+<p>使用cyberchef的MD5功能进行加密<br>得到</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Please md5 hash the text between quotes, excluding the quotes: &#x27;Microsoft&#x27;</span><br><span class="line">Answer: </span><br><span class="line">140864078aeca1c7c35b4beb33c53c34</span><br><span class="line">140864078aeca1c7c35b4beb33c53c34</span><br><span class="line">Correct.</span><br><span class="line">Please md5 hash the text between quotes, excluding the quotes: &#x27;Muhammad Ali&#x27;</span><br><span class="line">Answer: </span><br><span class="line">81d1d45dbb19a90fdfae4f87865b136a</span><br><span class="line">81d1d45dbb19a90fdfae4f87865b136a</span><br><span class="line">Correct.</span><br><span class="line">Please md5 hash the text between quotes, excluding the quotes: &#x27;Al Pacino&#x27;</span><br><span class="line">Answer: </span><br><span class="line">1c9909508d984c65fb3a2f3b28d27faf</span><br><span class="line">1c9909508d984c65fb3a2f3b28d27faf</span><br><span class="line">Correct.</span><br><span class="line">picoCTF&#123;4ppl1c4710n_r3c31v3d_674c1de2&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="Glich-cat"><a href="#Glich-cat" class="headerlink" title="Glich cat"></a>Glich cat</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nc saturn.picoctf.net 57330</span><br></pre></td></tr></table></figure>
+<p>得到</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">picoCTF&#123;gl17ch_m3_n07_&#x27; + chr(0x62) + chr(0x65) + chr(0x63) + chr(0x66) + chr(0x33) + chr(0x38) + chr(0x36) + chr(0x31) + &#x27;&#125;&#x27;</span><br></pre></td></tr></table></figure>
+<p>解码得到flag后半段</p>
+<h2 id="picoctf"><a href="#picoctf" class="headerlink" title="picoctf"></a>picoctf</h2><h3 id="Includes"><a href="#Includes" class="headerlink" title="Includes"></a>Includes</h3><p>flag前后两段在js模块中<br>直接获得flag拼接</p>
+<h3 id="Inspect-HTML"><a href="#Inspect-HTML" class="headerlink" title="Inspect HTML"></a>Inspect HTML</h3><p>f12直接获得flag</p>
+<h3 id="Local-Authority"><a href="#Local-Authority" class="headerlink" title="Local Authority"></a>Local Authority</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function checkPassword(username, password)</span><br><span class="line">&#123;</span><br><span class="line">  if( username === &#x27;admin&#x27; &amp;&amp; password === &#x27;strongPassword098765&#x27; )</span><br><span class="line">  &#123;</span><br><span class="line">    return true;</span><br><span class="line">  &#125;</span><br><span class="line">  else</span><br><span class="line">  &#123;</span><br><span class="line">    return false;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>前端js密码检测<br>密码明文暴露<br>登录admin账号后获得flag</p>
+<h3 id="Search-source"><a href="#Search-source" class="headerlink" title="Search source"></a>Search source</h3><p>flag存储在某个资源中<br>使用wget获取网页全部资源</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -m http://saturn.picoctf.net:61941/  </span><br></pre></td></tr></table></figure>
+<p>使用grep搜索flag</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">grep -r &quot;CTF&quot; -n </span><br><span class="line">css/style.css:328:/** banner_main picoCTF&#123;1nsp3ti0n_0f_w3bpag3s_8de925a7&#125; **/</span><br><span class="line">      </span><br></pre></td></tr></table></figure>
+<h3 id="Forbidden-Paths"><a href="#Forbidden-Paths" class="headerlink" title="Forbidden Paths"></a>Forbidden Paths</h3><p>目录穿越<br>payload</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">../../../../flag.txt</span><br></pre></td></tr></table></figure>
+<h3 id="Power-Cookie"><a href="#Power-Cookie" class="headerlink" title="Power Cookie"></a>Power Cookie</h3><p>burps查看请求包<br>更改cookie值<br>成功登录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cookie: isAdmin=1</span><br></pre></td></tr></table></figure>
+<p>获得flag</p>
+<h3 id="Roboto-Sans"><a href="#Roboto-Sans" class="headerlink" title="Roboto Sans"></a>Roboto Sans</h3><p>查看robots.txt<br>得到目标文件目录的base64</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/js/myfile.txt</span><br></pre></td></tr></table></figure>
+<p>访问得到flag</p>
+<h3 id="SQL-Direct"><a href="#SQL-Direct" class="headerlink" title="SQL Direct"></a>SQL Direct</h3><p>使用的是 PostgreSQL</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">picoCTF&#123;1nclu51v17y_1of2_f7w_2of2_b8f4b022&#125;</span><br><span class="line">pico=# select * from pg_tables;</span><br><span class="line">     schemaname     |        tablename        | tableowner | tablespace | hasindexes | hasrules | hastriggers | rowsecurity </span><br><span class="line">--------------------+-------------------------+------------+------------+------------+----------+-------------+-------------</span><br><span class="line"> public             | flags                   | postgres   |            | t          | f        | f           | f</span><br><span class="line"> pg_catalog         | pg_statistic            | postgres   |            | t          | f        | f           | f</span><br><span class="line"> pg_catalog         | pg_type                 | postgres   |            | t          | f        | f           | f</span><br><span class="line"> pg_catalog         | pg_foreign_table        | postgres   |            | t          | f        | f           | f</span><br><span class="line"> pg_catalog         | pg_authid               | postgres   | pg_global  | t          | f        | f           | f</span><br><span class="line"> pg_catalog         | pg_statistic_ext_data   | postgres   |            | t          | f        | f           | f</span><br><span class="line"> pg_catalog         | pg_user_mapping         | postgres   |            | t          | f        | f           | f</span><br><span class="line"> pg_catalog         | pg_subscription         | postgres   | pg_global  | t          | f        | f           | f</span><br><span class="line"> pg_catalog         | pg_attribute            | postgres   |            | t          | f        | f           | f</span><br><span class="line"> pg_catalog         | pg_proc                 | postgres   |            | t          | f        | f           | f</span><br><span class="line"> pg_catalog         | pg_class                | postgres   |            | t          | f        | f           | f</span><br><span class="line"> pg_catalog         | pg_attrdef              | postgres   |            | t          | f        | f           | f</span><br><span class="line"> pg_catalog         | pg_constraint           | postgres   |            | t          | f        | f           | f</span><br><span class="line"> pg_catalog         | pg_inherits             | postgres   |            | t          | f        | f           | f</span><br><span class="line"> pg_catalog         | pg_index                | postgres   |            | t          | f        | f           | f</span><br><span class="line"> pg_catalog         | pg_operator             | postgres   |            | t          | f        | f           | f</span><br><span class="line"> pg_catalog         | pg_opfamily             | postgres   |            | t          | f        | f           | f</span><br><span class="line"> pg_catalog         | pg_opclass              | postgres   |            | t          | f        | f           | f</span><br><span class="line"> pg_catalog         | pg_am                   | postgres   |            | t          | f        | f           | f</span><br><span class="line"> pg_catalog         | pg_amop                 | postgres   |            | t          | f        | f           | f</span><br><span class="line"> pg_catalog         | pg_amproc               | postgres   |            | t          | f        | f           | f</span><br><span class="line"> pg_catalog         | pg_language             | postgres   |            | t          | f        | f           | f</span><br><span class="line"> pg_catalog         | pg_largeobject_metadata | postgres   |            | t          | f        | f           | f</span><br><span class="line"> pg_catalog         | pg_aggregate            | postgres   |            | t          | f        | f           | f</span><br><span class="line"> pg_catalog         | pg_statistic_ext        | postgres   |            | t          | f        | f           | f</span><br><span class="line">:</span><br><span class="line">pico=# select * from pg_tables;</span><br><span class="line">pico=# select * from flags;</span><br><span class="line"> id | firstname | lastname  |                address                 </span><br><span class="line">----+-----------+-----------+----------------------------------------</span><br><span class="line">  1 | Luke      | Skywalker | picoCTF&#123;L3arN_S0m3_5qL_t0d4Y_21c94904&#125;</span><br><span class="line">  2 | Leia      | Organa    | Alderaan</span><br><span class="line">  3 | Han       | Solo      | Corellia</span><br><span class="line">(3 行记录)</span><br></pre></td></tr></table></figure>
+<p>得到flag</p>
+<h3 id="SQLiLite"><a href="#SQLiLite" class="headerlink" title="SQLiLite"></a>SQLiLite</h3><p>以<code>&#39;</code>封闭的sql注入<br>使用万能密码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;OR 1=1 --</span><br></pre></td></tr></table></figure>
+<p>得到flag</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/03/10/2022-3-15/" rel="prev" title="2022-3-15">
+      <i class="fa fa-chevron-left"></i> 2022-3-15
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/03/28/3-30/" rel="next" title="3-30">
+      3-30 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC81NDU4OS8zMTA2MA=="></div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pico%E5%AE%9D%E5%AE%9D%E5%B7%B4%E5%A3%AB"><span class="nav-number">1.</span> <span class="nav-text">pico宝宝巴士</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Beginner-2022mini"><span class="nav-number">1.1.</span> <span class="nav-text">Beginner 2022mini</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#codebook"><span class="nav-number">1.1.0.0.1.</span> <span class="nav-text">codebook</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#hashjobapp"><span class="nav-number">1.1.0.0.2.</span> <span class="nav-text">hashjobapp</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Glich-cat"><span class="nav-number">1.1.0.0.3.</span> <span class="nav-text">Glich cat</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#picoctf"><span class="nav-number">1.2.</span> <span class="nav-text">picoctf</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Includes"><span class="nav-number">1.2.1.</span> <span class="nav-text">Includes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inspect-HTML"><span class="nav-number">1.2.2.</span> <span class="nav-text">Inspect HTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Local-Authority"><span class="nav-number">1.2.3.</span> <span class="nav-text">Local Authority</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Search-source"><span class="nav-number">1.2.4.</span> <span class="nav-text">Search source</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Forbidden-Paths"><span class="nav-number">1.2.5.</span> <span class="nav-text">Forbidden Paths</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Power-Cookie"><span class="nav-number">1.2.6.</span> <span class="nav-text">Power Cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Roboto-Sans"><span class="nav-number">1.2.7.</span> <span class="nav-text">Roboto Sans</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL-Direct"><span class="nav-number">1.2.8.</span> <span class="nav-text">SQL Direct</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQLiLite"><span class="nav-number">1.2.9.</span> <span class="nav-text">SQLiLite</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">hanbaiGG</p>
+  <div class="site-description" itemprop="description">为什么不拉弟弟一把呢</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; Tue Oct 19 2021 08:00:00 GMT+0800 (中国标准时间) – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hanbaiGG</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.8' zIndex='-1' count='300' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+});
+</script>
+
+</body>
+</html>
