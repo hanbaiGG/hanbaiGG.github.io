@@ -169,6 +169,76 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/31/mysql%E8%B8%A9%E5%9D%91%E9%81%BF%E9%9B%B7-%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hanbaiGG">
+      <meta itemprop="description" content="为什么不拉弟弟一把呢">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="灵能对抗实验室">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/31/mysql%E8%B8%A9%E5%9D%91%E9%81%BF%E9%9B%B7-%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">mysql踩坑避雷_个人总结</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-10-31 12:57:59 / 修改时间：14:20:04" itemprop="dateCreated datePublished" datetime="2021-10-31T12:57:59+08:00">2021-10-31</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="MYSQL的安装"><a href="#MYSQL的安装" class="headerlink" title="MYSQL的安装"></a>MYSQL的安装</h1><pre><code>我使用的是phpstudy自带的mysql
+phpstudy是一款免费的集成mysql和apeach的网站开发工具，比较适合萌新使用。
+</code></pre>
+<h2 id="雷点"><a href="#雷点" class="headerlink" title="雷点"></a>雷点</h2><h3 id="1-MySQL通道占用"><a href="#1-MySQL通道占用" class="headerlink" title="1.MySQL通道占用"></a>1.MySQL通道占用</h3><h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>如果你的电脑在之前安装过MySQL并且没有妥善的删除它（像博主一样喜欢直接扔进回收站）或者被一些奇奇怪怪的程序占用，MySQL所使用的3306端口很可能被占用导致服务无法启用</p>
+<h4 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h4><p>打开计算机管理<br>查看服务<br>找到MySQL**长相类似的<br>查看端口<br>确定占用了3306端口<br>关闭服务<br>重启MySQL<br>如果还是不行试试删除服务<br>    1.依次打开“开始菜单——所有程序——附件”<br>    2.右击“命令提示符”，单击“以管理员身份运行”<br>    3.在命令提示符窗口下执行<br>    <code>sc delete 服务名</code></p>
+<h3 id="出现mysql-error-2005-Unknown-MySQL-server-host-‘localhost’-0"><a href="#出现mysql-error-2005-Unknown-MySQL-server-host-‘localhost’-0" class="headerlink" title="出现mysql error 2005 - Unknown MySQL server host ‘localhost’(0)"></a>出现mysql error 2005 - Unknown MySQL server host ‘localhost’(0)</h3><h4 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h4><p>可能你的电脑hosts中没有定义127.0.0.1=localhost</p>
+<h4 id="解决-1"><a href="#解决-1" class="headerlink" title="解决"></a>解决</h4><p>mysql配置文件的存储在hosts文件中，其位置在：<br>Windows：c:\windows\system32\drives\etc\hosts<br>Linux：/etc/hosts<br>打开你会看到</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># For example:</span><br><span class="line">#</span><br><span class="line">#      102.54.94.97     rhino.acme.com          # source server</span><br><span class="line">#       38.25.63.10     x.acme.com              # x client host</span><br><span class="line"></span><br><span class="line"># localhost name resolution is handled within DNS itself.</span><br><span class="line">127.0.0.1       localhost</span><br><span class="line">#	::1             localhost</span><br><span class="line">0.0.0.0 www.bandicam.com</span><br><span class="line">0.0.0.0 bandicam.com</span><br></pre></td></tr></table></figure>
+<p>按例子更改</p>
+<h4 id="问题-2"><a href="#问题-2" class="headerlink" title="问题"></a>问题</h4><p>更改后仍然不能成功启动服务</p>
+<h4 id="解决-2"><a href="#解决-2" class="headerlink" title="解决"></a>解决</h4><p>在有网络的情况下<code>localhost</code>可以被顺利解析为<code>127.0.0.1</code><br>但断网后却会被解析为字符串<br>所以请直接输入127.0.0.1</p>
+<h3 id="密码错误"><a href="#密码错误" class="headerlink" title="密码错误"></a>密码错误</h3><p>phpstudy的初始密码为<code>root\root</code><br>在数据库页面可以快速更改密码</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/31/%E4%B8%AD%E7%A7%91%E5%A4%A7web-general-wp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -617,7 +687,7 @@ py脚本
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

