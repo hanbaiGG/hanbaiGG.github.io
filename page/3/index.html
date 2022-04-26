@@ -169,6 +169,140 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/01/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97gcd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hanbaiGG">
+      <meta itemprop="description" content="为什么不拉弟弟一把呢">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="灵能对抗实验室">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/01/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97gcd/" class="post-title-link" itemprop="url">欧几里得gcd</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-11-01 11:17:40 / 修改时间：11:34:21" itemprop="dateCreated datePublished" datetime="2021-11-01T11:17:40+08:00">2021-11-01</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="欧几里得算法基础"><a href="#欧几里得算法基础" class="headerlink" title="欧几里得算法基础"></a>欧几里得算法基础</h1><p>辗转相除：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1997 / 615 = 3 (余 152)</span><br><span class="line">615 / 152 = 4(余7)</span><br><span class="line">152 / 7 = 21(余5)</span><br><span class="line">7 / 5 = 1 (余2)</span><br><span class="line">5 / 2 = 2 (余1)</span><br><span class="line">2 / 1 = 2 (余0)</span><br></pre></td></tr></table></figure>
+<p>因此，1997和615的最大公因数（gcd）为1.</p>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>易得<br>a mod b = c···qn<br>a,b,c拥有相同的gcd<br>并且b &gt; c<br>得证</p>
+<h1 id="扩展欧几里得算法"><a href="#扩展欧几里得算法" class="headerlink" title="扩展欧几里得算法"></a>扩展欧几里得算法</h1><p>存在 s*R0+t*R1=gcd(R0,R1)<br>使用迭代方法计算s和t<br>S0=1;S1=0<br>T0=0;T1=1<br>S2=S0-Q1*S1<br>直到Sn=Sn-2-Sn-1*Qn-1<br>T同理可得</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/01/secretfile/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hanbaiGG">
+      <meta itemprop="description" content="为什么不拉弟弟一把呢">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="灵能对抗实验室">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/01/secretfile/" class="post-title-link" itemprop="url">secretfile</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-11-01 10:55:23 / 修改时间：10:55:56" itemprop="dateCreated datePublished" datetime="2021-11-01T10:55:23+08:00">2021-11-01</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1-f12查看页面代码"><a href="#1-f12查看页面代码" class="headerlink" title="1.f12查看页面代码"></a>1.f12查看页面代码</h1><pre><code>发现
+```href=&quot;./Archive_room.php&quot;```
+点击前往
+</code></pre>
+<h1 id="2-burpsuit截获中间页面"><a href="#2-burpsuit截获中间页面" class="headerlink" title="2.burpsuit截获中间页面"></a>2.burpsuit截获中间页面</h1><pre><code>提示没看清中间页面
+通过burp截取获得
+</code></pre>
+<h1 id="3-include文件包含"><a href="#3-include文件包含" class="headerlink" title="3.include文件包含"></a>3.include文件包含</h1><pre><code>flag.php没有反应
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$file</span>=<span class="variable">$_GET</span>[<span class="string">&#x27;file&#x27;</span>]</span><br><span class="line"><span class="keyword">include</span>(<span class="variable">$file</span>)</span><br></pre></td></tr></table></figure>
+首先尝试php伪协议
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url ?file=php://filter/convert.base64-encode/resource=flag.php</span><br></pre></td></tr></table></figure>
+</code></pre>
+<h1 id="4-base解密获取flag。"><a href="#4-base解密获取flag。" class="headerlink" title="4.base解密获取flag。"></a>4.base解密获取flag。</h1>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/31/mysql%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -773,7 +907,7 @@ py脚本
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">28</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
