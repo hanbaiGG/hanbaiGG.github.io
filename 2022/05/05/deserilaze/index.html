@@ -22,19 +22,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="MYSQL的安装我使用的是phpstudy自带的mysql phpstudy是一款免费的集成mysql和apeach的网站开发工具，比较适合萌新使用。  雷点1.MySQL通道占用问题如果你的电脑在之前安装过MySQL并且没有妥善的删除它（像博主一样喜欢直接扔进回收站）或者被一些奇奇怪怪的程序占用，MySQL所使用的3306端口很可能被占用导致服务无法启用 解决打开计算机管理查看服务找到MySQL">
+  <meta name="description" content="序列化与反序列化专项学习序列化与反序列化漏洞广泛存在于各种语言中，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mysql踩坑避雷_个人总结">
-<meta property="og:url" content="http://example.com/2021/10/31/mysql%E8%B8%A9%E5%9D%91%E9%81%BF%E9%9B%B7-%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:title" content="deserilaze">
+<meta property="og:url" content="http://example.com/2022/05/05/deserilaze/index.html">
 <meta property="og:site_name" content="灵能对抗实验室">
-<meta property="og:description" content="MYSQL的安装我使用的是phpstudy自带的mysql phpstudy是一款免费的集成mysql和apeach的网站开发工具，比较适合萌新使用。  雷点1.MySQL通道占用问题如果你的电脑在之前安装过MySQL并且没有妥善的删除它（像博主一样喜欢直接扔进回收站）或者被一些奇奇怪怪的程序占用，MySQL所使用的3306端口很可能被占用导致服务无法启用 解决打开计算机管理查看服务找到MySQL">
+<meta property="og:description" content="序列化与反序列化专项学习序列化与反序列化漏洞广泛存在于各种语言中，">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-10-31T04:57:59.000Z">
-<meta property="article:modified_time" content="2021-10-31T06:20:04.630Z">
+<meta property="article:published_time" content="2022-05-05T02:42:15.000Z">
+<meta property="article:modified_time" content="2022-05-05T09:26:34.633Z">
 <meta property="article:author" content="hanbaiGG">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2021/10/31/mysql%E8%B8%A9%E5%9D%91%E9%81%BF%E9%9B%B7-%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/">
+<link rel="canonical" href="http://example.com/2022/05/05/deserilaze/">
 
 
 <script id="page-configurations">
@@ -47,7 +47,7 @@
   };
 </script>
 
-  <title>mysql踩坑避雷_个人总结 | 灵能对抗实验室</title>
+  <title>deserilaze | 灵能对抗实验室</title>
   
 
 
@@ -172,7 +172,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/31/mysql%E8%B8%A9%E5%9D%91%E9%81%BF%E9%9B%B7-%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/05/deserilaze/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -185,7 +185,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          mysql踩坑避雷_个人总结
+          deserilaze
         </h1>
 
         <div class="post-meta">
@@ -196,7 +196,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-10-31 12:57:59 / 修改时间：14:20:04" itemprop="dateCreated datePublished" datetime="2021-10-31T12:57:59+08:00">2021-10-31</time>
+              <time title="创建时间：2022-05-05 10:42:15 / 修改时间：17:26:34" itemprop="dateCreated datePublished" datetime="2022-05-05T10:42:15+08:00">2022-05-05</time>
             </span>
 
           
@@ -210,18 +210,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="MYSQL的安装"><a href="#MYSQL的安装" class="headerlink" title="MYSQL的安装"></a>MYSQL的安装</h1><pre><code>我使用的是phpstudy自带的mysql
-phpstudy是一款免费的集成mysql和apeach的网站开发工具，比较适合萌新使用。
-</code></pre>
-<h2 id="雷点"><a href="#雷点" class="headerlink" title="雷点"></a>雷点</h2><h3 id="1-MySQL通道占用"><a href="#1-MySQL通道占用" class="headerlink" title="1.MySQL通道占用"></a>1.MySQL通道占用</h3><h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>如果你的电脑在之前安装过MySQL并且没有妥善的删除它（像博主一样喜欢直接扔进回收站）或者被一些奇奇怪怪的程序占用，MySQL所使用的3306端口很可能被占用导致服务无法启用</p>
-<h4 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h4><p>打开计算机管理<br>查看服务<br>找到MySQL**长相类似的<br>查看端口<br>确定占用了3306端口<br>关闭服务<br>重启MySQL<br>如果还是不行试试删除服务<br>    1.依次打开“开始菜单——所有程序——附件”<br>    2.右击“命令提示符”，单击“以管理员身份运行”<br>    3.在命令提示符窗口下执行<br>    <code>sc delete 服务名</code></p>
-<h3 id="出现mysql-error-2005-Unknown-MySQL-server-host-‘localhost’-0"><a href="#出现mysql-error-2005-Unknown-MySQL-server-host-‘localhost’-0" class="headerlink" title="出现mysql error 2005 - Unknown MySQL server host ‘localhost’(0)"></a>出现mysql error 2005 - Unknown MySQL server host ‘localhost’(0)</h3><h4 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h4><p>可能你的电脑hosts中没有定义127.0.0.1=localhost</p>
-<h4 id="解决-1"><a href="#解决-1" class="headerlink" title="解决"></a>解决</h4><p>mysql配置文件的存储在hosts文件中，其位置在：<br>Windows：c:\windows\system32\drives\etc\hosts<br>Linux：/etc/hosts<br>打开你会看到</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># For example:</span><br><span class="line">#</span><br><span class="line">#      102.54.94.97     rhino.acme.com          # source server</span><br><span class="line">#       38.25.63.10     x.acme.com              # x client host</span><br><span class="line"></span><br><span class="line"># localhost name resolution is handled within DNS itself.</span><br><span class="line">127.0.0.1       localhost</span><br><span class="line">#	::1             localhost</span><br><span class="line">0.0.0.0 www.bandicam.com</span><br><span class="line">0.0.0.0 bandicam.com</span><br></pre></td></tr></table></figure>
-<p>按例子更改</p>
-<h4 id="问题-2"><a href="#问题-2" class="headerlink" title="问题"></a>问题</h4><p>更改后仍然不能成功启动服务</p>
-<h4 id="解决-2"><a href="#解决-2" class="headerlink" title="解决"></a>解决</h4><p>在有网络的情况下<code>localhost</code>可以被顺利解析为<code>127.0.0.1</code><br>但断网后却会被解析为字符串<br>所以请直接输入127.0.0.1</p>
-<h3 id="密码错误"><a href="#密码错误" class="headerlink" title="密码错误"></a>密码错误</h3><p>phpstudy的初始密码为<code>root\root</code><br>在数据库页面可以快速更改密码</p>
+        <h1 id="序列化与反序列化专项学习"><a href="#序列化与反序列化专项学习" class="headerlink" title="序列化与反序列化专项学习"></a>序列化与反序列化专项学习</h1><p>序列化与反序列化漏洞广泛存在于各种语言中，</p>
 
     </div>
 
@@ -237,13 +226,10 @@ phpstudy是一款免费的集成mysql和apeach的网站开发工具，比较适�
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/10/31/%E4%B8%AD%E7%A7%91%E5%A4%A7web-general-wp/" rel="prev" title="中科大web-general_wp">
-      <i class="fa fa-chevron-left"></i> 中科大web-general_wp
+    <a href="/2022/05/05/5-7/" rel="prev" title="5-7">
+      <i class="fa fa-chevron-left"></i> 5-7
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/10/31/mysql%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="next" title="mysql入门学习笔记">
-      mysql入门学习笔记 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -307,7 +293,7 @@ phpstudy是一款免费的集成mysql和apeach的网站开发工具，比较适�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MYSQL%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">MYSQL的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%B7%E7%82%B9"><span class="nav-number">1.1.</span> <span class="nav-text">雷点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-MySQL%E9%80%9A%E9%81%93%E5%8D%A0%E7%94%A8"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.MySQL通道占用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">解决</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BA%E7%8E%B0mysql-error-2005-Unknown-MySQL-server-host-%E2%80%98localhost%E2%80%99-0"><span class="nav-number">1.1.2.</span> <span class="nav-text">出现mysql error 2005 - Unknown MySQL server host ‘localhost’(0)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%97%AE%E9%A2%98-1"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3-1"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">解决</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%97%AE%E9%A2%98-2"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3-2"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">解决</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%86%E7%A0%81%E9%94%99%E8%AF%AF"><span class="nav-number">1.1.3.</span> <span class="nav-text">密码错误</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%93%E9%A1%B9%E5%AD%A6%E4%B9%A0"><span class="nav-number">1.</span> <span class="nav-text">序列化与反序列化专项学习</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
